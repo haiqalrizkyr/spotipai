@@ -1,1 +1,1 @@
-# spotipai
+SPOTIPAI adalah website sederhana yang dibuat untuk memutar lagu.
