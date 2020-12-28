@@ -13,7 +13,7 @@
     <h2 align="center">Artist</h2>
     <br>
 	<div class="container">
-    <table class="table table-bordered">
+    <table id="example" class="table table-bordered">
 	<a href="index.php?halaman=tambahartist" id="right" class="btn btn-success"><i class='fas fa-folder-plus'></i> Tambah Artist</a>
 	<br><br>
 	
