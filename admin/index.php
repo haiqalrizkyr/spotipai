@@ -52,7 +52,7 @@ font-size: 20px;">&nbsp; <a href="logout.php" class="btn btn-primary square-btn-
                     <li><a class="active-menu"  href="index.php?halaman=daftar_lagu"><i class="fa fa-music" style="font-size:36px"></i> Daftar Lagu</a></li>
                     <li><a class="active-menu"  href="index.php?halaman=genre"><i class="material-icons" style="font-size:36px">&#xe063;</i> Genre</a></li>
                     <li><a class="active-menu"  href="index.php?halaman=playlist"><i class="material-icons" style="font-size:36px">&#xe03d;</i> Playlist</a></li>
-                    <li><a class="active-menu"  href="index.php?halaman=artist"><i class="material-icons" style="font-size:36px">&#xe030;</i> Artist</a></li>
+                    <li><a class="active-menu"  href="index.php?halaman=artist"><i class="fas fa-microphone" style="font-size:36px">&nbsp;</i> Artist</a></li>
                     <li><a class="active-menu"  href="index.php?halaman=logout"><i class="fa fa-minus-circle fa-3x"></i> Logout</a></li>
                 </li>  
                 </ul>
@@ -147,6 +147,8 @@ font-size: 20px;">&nbsp; <a href="logout.php" class="btn btn-primary square-btn-
         </div>
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <!-- JQUERY SCRIPTS -->
     <script src="assets/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
