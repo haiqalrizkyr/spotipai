@@ -52,7 +52,7 @@ font-size: 20px;">&nbsp; <a href="logout.php" class="btn btn-primary square-btn-
                     <li><a class="active-menu"  href="index.php?halaman=daftar_lagu"><i class="fa fa-music" style="font-size:36px"></i> Daftar Lagu</a></li>
                     <li><a class="active-menu"  href="index.php?halaman=genre"><i class="material-icons" style="font-size:36px">&#xe063;</i> Genre</a></li>
                     <li><a class="active-menu"  href="index.php?halaman=playlist"><i class="material-icons" style="font-size:36px">&#xe03d;</i> Playlist</a></li>
-                    <li><a class="active-menu"  href="index.php?halaman=album"><i class="material-icons" style="font-size:36px">&#xe030;</i> Album</a></li>
+                    <li><a class="active-menu"  href="index.php?halaman=artist"><i class="material-icons" style="font-size:36px">&#xe030;</i> Artist</a></li>
                     <li><a class="active-menu"  href="index.php?halaman=logout"><i class="fa fa-minus-circle fa-3x"></i> Logout</a></li>
                 </li>  
                 </ul>
@@ -74,9 +74,9 @@ font-size: 20px;">&nbsp; <a href="logout.php" class="btn btn-primary square-btn-
                     {
                         include 'playlist.php';
                     }
-                    elseif ($_GET['halaman']=="album")
+                    elseif ($_GET['halaman']=="artist")
                     {
-                        include 'album.php';
+                        include 'artist.php';
                     }   
                     elseif ($_GET['halaman']=="logout")
                     {
@@ -122,17 +122,17 @@ font-size: 20px;">&nbsp; <a href="logout.php" class="btn btn-primary square-btn-
                     {
                         include 'hapusplaylist.php';
                     }
-                    elseif ($_GET['halaman']=="tambahalbum")
+                    elseif ($_GET['halaman']=="tambahartist")
                     {
-                        include 'tambahalbum.php';
+                        include 'tambahartist.php';
                     }
-                    elseif ($_GET['halaman']=="editalbum")
+                    elseif ($_GET['halaman']=="editartist")
                     {
-                        include 'editalbum.php';
+                        include 'editartist.php';
                     }
-                    elseif ($_GET['halaman']=="hapusalbum")
+                    elseif ($_GET['halaman']=="hapusartist")
                     {
-                        include 'hapusalbum.php';
+                        include 'hapusartist.php';
                     }
                 }
                 else
