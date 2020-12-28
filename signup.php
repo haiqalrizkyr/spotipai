@@ -5,9 +5,11 @@
 		<title>Spotipai - Web Music Player</title>
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-			<link rel="stylesheet" type="text/css" href="style.css">
+			<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 			<?php include 'script.html'?>
 			<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+			<script type="text/javascript" src="js/bootstrap.js"></script>
+
 			<script type="text/javascript">
 		$(document).ready(function(){
 			$('#formDaftar').validate({
@@ -59,9 +61,7 @@
 		});
 	</script>
 			<style>
-				body{
-					font-family: Montserrat;
-				}.warna{
+				.warna{
 					color: white;
 				}
 			</style>
@@ -77,35 +77,32 @@
 				<div class="warna">
 	<h2 style="margin-top: 70px; text-align: center;">Sign Up Untuk Bergabung Keluarga Penikmat Musik.</h2>
 	<br>
-	
-	<form action="register.php" method="POST" id="formDaftar">
-		<table align="center">
-			<tr>
-				<td class="">Username</td>
-				<td><input id="username" type="text" name="username"  required></td>
-			</tr>
-			<tr>
-				<td>Password</td>
-				<td><input id="sandi" type="password" name="sandi" required ></td>
-			</tr>
-			<tr>
-				<td>Konfirmasi Password</td>
-				<td><input id="sandi2" type="password" name="sandi2" required></td>
-			<tr>
-				<td>Nama</td>
-				<td><input type="text" name="nama" required></td>
-			</tr>
-			<tr>
-				<td>Email</td>
-				<td><input type="email" name="email" required></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><button type="submit" class="btn btn-success"name="Daftar">Sign Up</button</td>
-			</tr>
-		</table>
+	<center><div class="container">
+	<form action="register.php" class="form-horizontal"method="POST" id="formDaftar">
+	<div class="form-group">
+	 	<label class="col-sm-4 control-label">Username</label>
+	 	<input class="form-control col-sm-4" type="text" name="username" placeholder="Username" required>
+	 </div>
+	 <div class="form-group">
+	 	<label class="col-sm-4 control-label">Password</label>
+	 	<input class="form-control col-sm-4" type="password" name="sandi" placeholder="Password" required>
+	 </div>
+	 <div class="form-group">
+	 	<label class="col-sm-4 control-label">Konfimasi Password</label>
+	 	<input class="form-control col-sm-4" type="password" name="sandi2" placeholder="Konfirmasi Password" required>
+	 </div>
+	 <div class="form-group">
+	 	<label class="col-sm-4 control-label">Nama</label>
+	 	<input class="form-control col-sm-4" type="text" name="nama" placeholder="Nama" required>
+	 </div>
+	 <div class="form-group">
+	 	<label class="col-sm-4 control-label">Email</label>
+	 	<input class="form-control col-sm-4" type="email" name="email" placeholder="Email" required>
+	 </div>
+	 <button type="submit" class="btn btn-success" name="Daftar">Sign Up</button>
 	</form>
 			</div>
-
+			</div>
+			</center>
 </body>
 </html>
