@@ -1,7 +1,7 @@
 ﻿<?php
 session_start();
 //koneksi ke database
-$koneksi= new mysqli("localhost","root","","admin_spotipai");
+$koneksi= new mysqli("localhost","root","","spotipai");
 ?>
 
 <!DOCTYPE html>
@@ -65,11 +65,11 @@ $koneksi= new mysqli("localhost","root","","admin_spotipai");
        <?php  
        if (isset($_POST['login'])) 
        {
-         $ambil = $koneksi->query("SELECT * FROM admin WHERE username='$_POST[user]' AND password ='$_POST[pass]'");
+         $ambil = $koneksi->query("SELECT username,nama FROM user WHERE username='$_POST[user]' AND password ='$_POST[pass]'");
          $yangcocok = $ambil->num_rows;
          if ($yangcocok==1) 
          {
-           $_SESSION['admin']=$ambil->fetch_assoc();
+           $_SESSION['user']=$ambil->fetch_assoc();
            echo "<div class='alert alert-info'>Login Sukses</div>";
            echo "<meta http-equiv='refresh' content='1;url=index.php'>";
          }
