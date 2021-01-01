@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2021 at 01:31 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Generation Time: Jan 01, 2021 at 03:08 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -112,11 +113,18 @@ CREATE TABLE `song_genre` (
 CREATE TABLE `user` (
   `id_user` int(3) NOT NULL,
   `id_user_role` int(1) NOT NULL,
-  `username` int(10) NOT NULL,
-  `email` int(50) NOT NULL,
-  `nama` int(50) NOT NULL,
-  `password` int(50) NOT NULL
+  `username` varchar(10) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `id_user_role`, `username`, `email`, `nama`, `password`) VALUES
+(1, 1, 'lais', 'lais315@gmail.com', 'lais', 'lais');
 
 -- --------------------------------------------------------
 
@@ -164,6 +172,14 @@ CREATE TABLE `user_role` (
   `id_user_role` int(1) NOT NULL,
   `nama_role` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_role`
+--
+
+INSERT INTO `user_role` (`id_user_role`, `nama_role`) VALUES
+(1, 'admin'),
+(2, 'user');
 
 --
 -- Indexes for dumped tables
@@ -303,7 +319,7 @@ ALTER TABLE `song_genre`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_fav_song`
@@ -327,7 +343,7 @@ ALTER TABLE `user_playlist_song`
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id_user_role` int(1) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user_role` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
