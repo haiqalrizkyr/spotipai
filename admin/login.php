@@ -69,7 +69,7 @@ $koneksi= new mysqli("localhost","root","","spotipai");
          $yangcocok = $ambil->num_rows;
          if ($yangcocok==1) 
          {
-           $_SESSION['user']=$ambil->fetch_assoc();
+           $_SESSION['admin']=$ambil->fetch_assoc();
            echo "<div class='alert alert-info'>Login Sukses</div>";
            echo "<meta http-equiv='refresh' content='1;url=index.php'>";
          }

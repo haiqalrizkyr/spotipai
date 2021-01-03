@@ -1,3 +1,11 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
+        echo "<script> alert('Anda belum login. Silakan login terlebih dahulu!') </script>";
+        echo "<script>location='index.php';</script>";
+    }
+?>
 <!DOCTYPE html>
 <html>
 
