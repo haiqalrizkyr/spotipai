@@ -39,8 +39,8 @@
     <div class="md-form mt-0">
         <table style="margin-top: 70px;" align="center">
             <tr>
-                <td><input class="form-control" type="text" placeholder="Search" aria-label="Search"></td>
-                <td><button class="btn btn-outline-success">Submit</button></td>
+                <td><input class="form-control" type="text" placeholder="Search" aria-label="Search" style="width: 500px; border-radius:35px"></td>
+                <td><button style="border-radius: 35px;" class="btn btn-outline-success"><i class="fas fa-search"></i></button></td>
             </tr>
         </table>
     </div>
