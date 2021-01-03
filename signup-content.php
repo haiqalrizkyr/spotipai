@@ -1,12 +1,52 @@
-<div class="content">
-<div class="warna">
-	<h2 style="margin-top: 90px; text-align: center;">Sign Up Untuk Bergabung Keluarga Penikmat Musik.</h2>
+<?php 
+include 'koneksi.php';
+session_start();
+?>
+
+<div class="content warna" style="color: white;">
+	<h2 style="margin-top: 70px; text-align: center;">Sign Up Untuk Bergabung Keluarga Penikmat Musik.</h2>
 	<br>
 	<div class="container">
-	<form action="register.php" class="form-horizontal"method="POST" id="formDaftar">
+
+		<?php
+			if (isset($_POST['Daftar'])) {
+				$cekakun = mysqli_query($koneksi, "SELECT id_user FROM user WHERE username = '$_POST[username]' OR email = '$_POST[email]'");
+
+				$rowcount = mysqli_num_rows($cekakun);
+
+				if ($rowcount > 0) {
+					echo '<div class="alert alert-danger" role="alert">
+  							Pendaftaran tidak berhasil, Username atau Email telah digunakan!
+						  </div>';
+				}
+				else{
+					$role_user = 2;
+
+					$querymasukkan = "INSERT INTO user(id_user_role, username, email, nama, password)
+										VALUES ('$role_user', '$_POST[username]', '$_POST[email]', '$_POST[nama]', '$_POST[sandi]')";
+
+					mysqli_query($koneksi, $querymasukkan);
+
+					echo "<script> alert('Pendaftaran berhasil! Silakan login terlebih dahulu') </script>";
+              		echo "<script>location='index.php';</script>";
+				}
+			}
+		?>
+
+	<form class="form-horizontal"method="POST" id="formDaftar">
 	<div class="form-group">
 	 	<label class="col-sm-4 control-label">Username</label>
 	 	<input class="form-control col-sm-4" type="text" name="username" placeholder="Username" required>
+	 </div>
+	 <br>
+	 <div class="form-group">
+	 	<label class="col-sm-4 control-label">Email</label>
+	 	<input class="form-control col-sm-4" type="email" name="email" placeholder="Email" required>
+	 </div>
+	 <br>
+	 <div class="form-group">
+	 	<label class="col-sm-4 control-label">Nama</label>
+	 	<input class="form-control col-sm-4" type="text" name="nama" placeholder="Nama" required>
 	 </div>
 	 <br>
 	 <div class="form-group">
@@ -18,21 +58,10 @@
 	 	<label class="col-sm-4 control-label">Konfimasi Password</label>
 	 	<input class="form-control col-sm-4" type="password" name="sandi2" placeholder="Konfirmasi Password">
 	 </div>
-	 <br>
-	 <div class="form-group">
-	 	<label class="col-sm-4 control-label">Nama</label>
-	 	<input class="form-control col-sm-4" type="text" name="nama" placeholder="Nama" required>
-	 </div>
-	 <br>
-	 <div class="form-group">
-	 	<label class="col-sm-4 control-label">Email</label>
-	 	<input class="form-control col-sm-4" type="email" name="email" placeholder="Email" required>
-	 </div>
 	 <br><br>
 	 <button type="submit" class="btn btn-success" name="Daftar">Sign Up</button>
 	</form>
 	</div>
-</div>
 </div>
 
 <script type="text/javascript">
@@ -85,3 +114,6 @@
 			});
 		});
 	</script>
+
+
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
