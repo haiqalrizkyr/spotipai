@@ -1,3 +1,8 @@
+<?php
+	session_start();
+
+	include 'koneksi.php';
+?>
 <!DOCTYPE html>
 <html>
 
@@ -18,6 +23,7 @@
 			font-size: 35px;
 			background-size: 200px;
 			color: white;
+			width: 0px !important;
 		}
 	</style>
 </head>
@@ -30,7 +36,7 @@
 	<div class="content">
 		<h1 style="margin-top: 70px; color: white;">All Genres</h1>
 		<div class="container">
-			<button style="padding-right: 100px; background-color: #686128">Dance/Electronic</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<!-- <button style="padding-right: 100px; background-color: #686128">Dance/Electronic</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<button style="background-color: #B76348">R&B</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<button style="padding-right: 290px; background-color: #65B748">Blues</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<br><br><button style="padding-right: 240px; background-color: #C9BB36">Hip Hop</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -41,7 +47,20 @@
 			<button style="background-color: #C9368D">Indie</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<br><br><button style="background-color: #8EB44B">Chill</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<button style="padding-right: 280px; background-color: #714BB4">Metal</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<button style="padding-right: 250px; background-color: #D629BA">Acoustic</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button style="padding-right: 250px; background-color: #D629BA">Acoustic</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+		  <div class="row">
+			<?php
+	            $ambilgenre = $koneksi->query("SELECT * FROM genre ORDER BY rand()");
+
+	            while ($datagenre = $ambilgenre->fetch_assoc()){
+	        ?>
+	        <div class="col-sm-4">
+	        	<button onclick="window.location.href='#<?= $datagenre['id_genre'] ?>'" style="background-color: <?php echo '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6); ?>;">
+	        		<?= $datagenre['nama_genre'] ?>
+	        	</button>	
+	        </div>
+	        <?php } ?>
+	      </div>
 		</div>
 	</div>
 </body>
