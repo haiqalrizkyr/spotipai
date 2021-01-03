@@ -12,18 +12,18 @@
 			<tbody>
 				<tr>
 					<th scope="row">1</th>
-					<td><a href=""> Mark</td>
-					<td>Otto</td>
+					<td><a href="play.php"> Song Title</a></td>
+					<td>Artist</td>
 				</tr>
 				<tr>
 					<th scope="row">2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
+					<td><a href="play.php">Song Title</a></td>
+					<td>Artist</td>
 				</tr>
 				<tr>
 					<th scope="row">3</th>
-					<td>Larry the Bird</td>
-					<td>Larry</td>
+					<td><a href="play.php"> Song Title</a></td>
+					<td>Artist</td>
 				</tr>
 			</tbody>
 		</table>
