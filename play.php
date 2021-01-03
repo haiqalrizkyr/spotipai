@@ -15,23 +15,36 @@
     include 'sidebar.php';
     ?>
     <div class="content">
-        <table style="margin-top: 70px; color:white">
-            <tr>
-                <td><button style="padding: 50px; background-color:white" disabled><i class="fas fa-music fa-7x"></i></button></td>
-            </tr>
-            <tr>
-                <td>Song Title</td>
-            </tr>
-            <tr>
-                <td>Artist</td>
-            </tr>
-            <tr>
-                <td><audio controls>
-                        <source src="horse.mp3" type="audio/mpeg">
-                        Your browser does not support the audio tag.
-                    </audio></td>
-            </tr>
-        </table>
+        <div class="container" style="width:1000px ; background-color: #313131; border-radius:35px;">
+            <table style="margin-top: 70px; color:white; text-align:center" align="center">
+                <tr>
+                    <td><button style="margin-top:30px;padding: 90px; background-color: white; border-radius:35px;" disabled><i class="fas fa-music fa-7x"></i></button></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 80px;">Song Title</td>
+                </tr>
+                <tr>
+                    <td style="font-size: 50px;">Artist</td>
+                </tr>
+            </table>
+            <br>
+            <div class="audio" align="center"><audio controls>
+                    <source src="" type="audio/mpeg">
+                    Your browser does not support the audio tag.
+                </audio></div>
+            <br>
+            <div class="container" style="color: white; padding-bottom:30px;">
+                <h3 align="center">About This Song</h3>
+                <table align="center">
+                    <tr>
+                        <td>Album:</td>
+                    </tr>
+                    <tr>
+                        <td>Writer:</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 
