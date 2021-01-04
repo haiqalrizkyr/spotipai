@@ -16,14 +16,11 @@
 		.container button {
 			border-radius: 35px;
 			border-color: transparent;
-			padding-left: 25px;
-			padding-top: 25px;
-			padding-right: 300px;
-			padding-bottom: 50px;
-			font-size: 35px;
-			background-size: 200px;
+			font-size: 27px;
 			color: white;
-			width: 0px !important;
+			width: 300px;
+			height: 100px;
+			padding: auto;
 		}
 	</style>
 </head>
@@ -54,8 +51,8 @@
 
 	            while ($datagenre = $ambilgenre->fetch_assoc()){
 	        ?>
-	        <div class="col-sm-4">
-	        	<button onclick="window.location.href='#<?= $datagenre['id_genre'] ?>'" style="background-color: <?php echo '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6); ?>;">
+	        <div class="col-sm-4 mb-4">
+	        	<button class="btn btn-block" onclick="window.location.href='#<?= $datagenre['id_genre'] ?>'" style="background-color: <?php echo '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6); ?>;">
 	        		<?= $datagenre['nama_genre'] ?>
 	        	</button>	
 	        </div>

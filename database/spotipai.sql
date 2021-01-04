@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2021 at 03:44 PM
+-- Generation Time: Jan 04, 2021 at 12:08 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -33,6 +33,16 @@ CREATE TABLE `album` (
   `year` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `album`
+--
+
+INSERT INTO `album` (`id_album`, `title`, `year`) VALUES
+(1, 'All Out', 2020),
+(2, 'Wonder', 2020),
+(3, 'Changes', 2020),
+(4, 'This Dream of You', 2020);
+
 -- --------------------------------------------------------
 
 --
@@ -44,6 +54,20 @@ CREATE TABLE `artist` (
   `nama_artist` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `artist`
+--
+
+INSERT INTO `artist` (`id_artist`, `nama_artist`) VALUES
+(1, 'Justin Bieber'),
+(2, 'Ariana Grande'),
+(3, 'Shawn Mendes'),
+(4, 'Maroon 5'),
+(5, 'K/DA'),
+(6, 'Madison Beer'),
+(7, 'Kim Petras'),
+(8, 'Diana Krall');
+
 -- --------------------------------------------------------
 
 --
@@ -54,6 +78,27 @@ CREATE TABLE `genre` (
   `id_genre` int(3) NOT NULL,
   `nama_genre` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `genre`
+--
+
+INSERT INTO `genre` (`id_genre`, `nama_genre`) VALUES
+(1, 'K-Pop'),
+(2, 'Pop'),
+(3, 'Rock'),
+(4, 'Classic Rock'),
+(5, 'Jazz'),
+(6, 'Pop Music'),
+(7, 'Dance / Electronic'),
+(8, 'R&B'),
+(9, 'Blues'),
+(10, 'Hip Hop'),
+(11, 'Country'),
+(12, 'Indie'),
+(13, 'Chill'),
+(14, 'Metal'),
+(15, 'Accoustic');
 
 -- --------------------------------------------------------
 
@@ -68,6 +113,20 @@ CREATE TABLE `song` (
   `song_file` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `song`
+--
+
+INSERT INTO `song` (`id_song`, `title`, `year`, `song_file`) VALUES
+(1, 'Stuck With You', 2020, 'asdasdasdasdasdas.mp3'),
+(2, 'Monster', 2020, 'asdasdasdsadasads.mp3'),
+(3, 'Memories', 2019, 'Maroon 5 - Memories.mp3'),
+(4, 'Villain', 2020, 'KDA - VILLAIN ft. Madison Beer & Kim Petras.mp3'),
+(5, 'More', 2020, 'asdasdsadas.mp3'),
+(6, 'Drum Go Dum', 2020, 'asdasdsadsadasdas.mp3'),
+(7, 'All Around Me', 2020, 'asdsadsadasd.mp3'),
+(8, 'I Wished On The Moon', 2020, 'asdsadsadsadas.mp3');
+
 -- --------------------------------------------------------
 
 --
@@ -80,6 +139,18 @@ CREATE TABLE `song_album` (
   `id_album` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `song_album`
+--
+
+INSERT INTO `song_album` (`id_song_album`, `id_song`, `id_album`) VALUES
+(1, 4, 1),
+(2, 2, 2),
+(3, 6, 1),
+(4, 5, 1),
+(5, 7, 3),
+(6, 8, 4);
+
 -- --------------------------------------------------------
 
 --
@@ -91,6 +162,24 @@ CREATE TABLE `song_artist` (
   `id_song` int(3) NOT NULL,
   `id_artist` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `song_artist`
+--
+
+INSERT INTO `song_artist` (`id_song_artist`, `id_song`, `id_artist`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 2, 1),
+(4, 2, 3),
+(5, 3, 4),
+(6, 4, 5),
+(7, 4, 6),
+(8, 4, 7),
+(9, 7, 1),
+(10, 5, 5),
+(11, 6, 5),
+(12, 8, 8);
 
 -- --------------------------------------------------------
 
@@ -124,7 +213,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `id_user_role`, `username`, `email`, `nama`, `password`) VALUES
-(1, 1, 'lais', 'lais315@gmail.com', 'lais', 'lais');
+(1, 1, 'lais', 'lais315@gmail.com', 'lais', 'lais'),
+(3, 2, 'arsyfpro', 'arsya@mail.com', 'Arsya F', '12345678');
 
 -- --------------------------------------------------------
 
@@ -137,6 +227,13 @@ CREATE TABLE `user_fav_song` (
   `id_user` int(3) NOT NULL,
   `id_song` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_fav_song`
+--
+
+INSERT INTO `user_fav_song` (`id_user_fav_song`, `id_user`, `id_song`) VALUES
+(1, 3, 4);
 
 -- --------------------------------------------------------
 
@@ -277,37 +374,37 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `album`
 --
 ALTER TABLE `album`
-  MODIFY `id_album` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_album` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `artist`
 --
 ALTER TABLE `artist`
-  MODIFY `id_artist` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_artist` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `genre`
 --
 ALTER TABLE `genre`
-  MODIFY `id_genre` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_genre` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `song`
 --
 ALTER TABLE `song`
-  MODIFY `id_song` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_song` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `song_album`
 --
 ALTER TABLE `song_album`
-  MODIFY `id_song_album` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_song_album` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `song_artist`
 --
 ALTER TABLE `song_artist`
-  MODIFY `id_song_artist` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_song_artist` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `song_genre`
@@ -319,13 +416,13 @@ ALTER TABLE `song_genre`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_fav_song`
 --
 ALTER TABLE `user_fav_song`
-  MODIFY `id_user_fav_song` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user_fav_song` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_playlist`
