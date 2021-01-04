@@ -3,7 +3,7 @@ session_start();
 //koneksi ke database
 $koneksi= new mysqli("localhost","root","","spotipai");
 
-if (!isset($_SESSION['user'])) 
+if (!isset($_SESSION['admin'])) 
 {
    echo "<script>alert('Anda harus login');</script>";
    echo "<script>location='login.php';</script>";
