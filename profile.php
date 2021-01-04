@@ -3,6 +3,11 @@ session_start();
 
 include 'koneksi.php';
 
+if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
+        echo "<script> alert('Anda belum login. Silakan login terlebih dahulu!') </script>";
+        echo "<script>location='index.php';</script>";
+    }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,15 +33,17 @@ include 'koneksi.php';
                     <td><button style="margin-top:30px;padding: 90px; background-color: white; border-radius: 200px;" disabled><i class="fas fa-user fa-7x"></i></button></td>
                 </tr>
                 <tr>
-                    <td style="font-size: 80px;">Username</td>
+                    <td style="font-size: 40px;"><?= $_SESSION['user']['username'] ?></td>
                 </tr>
                 <tr>
-                    <td style="font-size: 20px;">My Playlist</td>
+                    <td style="font-size: 20px;"><?= $_SESSION['user']['email'] ?></td>
                 </tr>
                 <tr>
-                    <td>
-                        <button style="padding: 35px; border-radius:35px">Playlist 1</button>
-                        <button style="padding: 35px; border-radius:35px">Playlist 2</button>
+                    <td><br></td>
+                </tr>
+                <tr>
+                    <td style="padding-bottom: 30px">
+                        <a href="edit_profile.php" class="btn btn-secondary">Edit Profile</a>
                     </td>
                 </tr>
             </table>

@@ -5,6 +5,22 @@
 			<path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
 		</svg>
 	</button>
+	<br><br><br>
+	<div style="color: white;">
+		<h2>- <a style="text-decoration: none;" href="fav_song.php">Your Favorite Song(s)</a></h2>
+		<br>
+		<?php
+			$id_user = $_SESSION['user']['id_user'];
+
+			$ambilplaylist = $koneksi->query("SELECT id_user_playlist, nama_playlist FROM user_playlist WHERE id_user = '$id_user'");
+
+			while ($datapl = $ambilplaylist->fetch_assoc()){
+				$banyaklagu = $ambillagu = $koneksi->query("SELECT id_song FROM user_playlist_song WHERE id_user_playlist = '$datapl[id_user_playlist]'");
+		?>
+		<h2>- <a style="text-decoration: none;" href="playlist_song.php?id=<?= $datapl['id_user_playlist'] ?>"><?= $datapl['nama_playlist'] ?></a> <?= number_format($banyaklagu->num_rows); ?> song(s)</h2>
+		<br>
+		<?php } ?>
+	</div>
 </div>
 
 <!-- Modal -->
@@ -12,15 +28,15 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Enter your playlist name</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Enter your playlist's name</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-     <form>
+     <form method="POST">
       <div class="modal-body">
 			<table align="center">
 				<tr>
 					<td>
-						<input class="form-control" type="text" placeholder="Playlist's Name">
+						<input name="nama_playlist" class="form-control" type="text" placeholder="Playlist's Name">
 					</td>
 				</tr>
 			</table>
@@ -33,3 +49,19 @@
     </div>
   </div>
 </div>
+
+
+<?php
+	if (isset($_POST['simpan'])) {
+		$id_user = $_SESSION['user']['id_user'];
+
+		$addplaylist = "INSERT INTO user_playlist (id_user, nama_playlist) VALUES ('$id_user', '$_POST[nama_playlist]')";
+
+		$koneksi->query($addplaylist);
+
+		$id_playlist = $koneksi->insert_id;
+
+		echo "<script> alert('Playlist ditambahkan, tambahkan lagu ke playlist Anda!') </script>";
+        echo "<script>location='add_song.php?id_playlist=".$id_playlist."';</script>";
+	}
+?>

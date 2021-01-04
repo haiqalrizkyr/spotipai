@@ -43,7 +43,7 @@
                     while ($dataalbum = $ambilalbum->fetch_assoc()) {
                 ?>
                 <div class="col-sm-4 mb-4">
-                    <button class="btn btn-block" onclick="window.location.href='#<?= $dataalbum['id_album'] ?>'" style="background-color: <?php echo '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6); ?>;">
+                    <button class="btn btn-block" onclick="window.location.href='album_song.php?id_album=<?= $dataalbum['id_album'] ?>'" style="background-color: <?php echo '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6); ?>;">
                         <?= $dataalbum['title'] ?> (<?= $dataalbum['year'] ?>)
                     </button>
                 </div>
