@@ -1,0 +1,1 @@
+$sql = "SELECT s.id_song, s.title FROM song s LEFT JOIN song_artist sa ON s.id_song = sa.id_song LEFT JOIN artist a ON sa.id_artist = a.id_artist LEFT JOIN song_album sal ON s.id_song = sal.id_song LEFT JOIN album al ON sal.id_album = al.id_album WHERE s.title LIKE \'%justin%\' OR a.nama_artist LIKE \'%justin%\' OR al.title LIKE \'%justin%\' GROUP BY s.id_song";
