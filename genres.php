@@ -52,7 +52,7 @@
 	            while ($datagenre = $ambilgenre->fetch_assoc()){
 	        ?>
 	        <div class="col-sm-4 mb-4">
-	        	<button class="btn btn-block" onclick="window.location.href='#<?= $datagenre['id_genre'] ?>'" style="background-color: <?php echo '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6); ?>;">
+	        	<button class="btn btn-block" onclick="window.location.href='genre_song.php?id_genre=<?= $datagenre['id_genre'] ?>'" style="background-color: <?php echo '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6); ?>;">
 	        		<?= $datagenre['nama_genre'] ?>
 	        	</button>	
 	        </div>

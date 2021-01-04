@@ -112,7 +112,7 @@
                         	?>
                         	Album : <?php 
                         				if($jumlahalbum == 1) {
-                        					echo "<a href='#?id=".$dataalbum['id_album']."'>".$dataalbum['title']."</a>";
+                        					echo "<a href='album_song.php?id_album=".$dataalbum['id_album']."'>".$dataalbum['title']."</a>";
                         							"(".$dataalbum['year'].")";
                         				} 
                         				else {echo "Single";} 
