@@ -13,7 +13,7 @@
 <body>
     <h2 align="center">Daftar Lagu</h2>
     <br>
-	<div class="container">
+	<div style="width: 1050px" class="container">
     <table id="example" class="table table-bordered">
 	<a href="index.php?halaman=tambahlagu" id="right" class="btn btn-success"><i class='fas fa-folder-plus'></i> Tambah Lagu</a>
 	<br><br>
@@ -24,7 +24,7 @@
 			<th>Title</th>
 			<th>Year</th>
 			<th>Song_file</th>
-			<th style="width: 200px;">aksi</th>
+			<th>aksi</th>
 		</tr>
 	</thead>
     <tbody>
@@ -37,8 +37,8 @@
 			<td><?php echo $pecah['year']; ?></td>
 			<td><?php echo $pecah['song_file']; ?></td>
 			<td>
-			<a href="index.php?halaman=editlagu" class="btn btn-warning"><i class='fas fa-edit' ></i> edit</a>
-			<a href="index.php?halaman=hapuslagu" class="btn-danger btn"><i class='fas fa-trash-alt'></i> hapus</a>
+			<a href="index.php?halaman=editlagu&id_song=<?= $pecah['id_song'] ?>" class="btn btn-warning"><i class='fas fa-edit' ></i> edit</a>
+			<a onclick="return confirm('Yakin ingin hapus lagu?')" href="index.php?halaman=hapuslagu&id_song=<?= $pecah['id_song'] ?>" class="btn-danger btn"><i class='fas fa-trash-alt'></i> hapus</a>
 			</td>
 		</tr>
 		 <?php $nomor++; ?>

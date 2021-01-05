@@ -12,7 +12,7 @@
 <body>
     <h2 align="center">Genre Musik</h2>
     <br>
-	<div class="container">
+	<div style="width: 1050px" class="container">
     <table id="example" class="table table-bordered">
 	<a href="index.php?halaman=tambahgenre" id="right" class="btn btn-success"><i class='fas fa-folder-plus'></i> Tambah Genre</a>
 	<br><br>
@@ -31,8 +31,8 @@
 			<td><?php echo $nomor++; ?></td>
 			<td><?php echo $pecah['nama_genre']; ?></td>
 			<td>
-			<a href="index.php?halaman=editgenre" class="btn btn-warning"><i class='fas fa-edit' ></i> edit</a>
-			<a href="index.php?halaman=hapusgenre" class="btn-danger btn"><i class='fas fa-trash-alt'></i> hapus</a>
+			<a href="index.php?halaman=editgenre&id_genre=<?= $pecah['id_genre'] ?>" class="btn btn-warning"><i class='fas fa-edit' ></i> edit</a>
+			<a onclick="return confirm('Yakin ingin hapus?')" href="index.php?halaman=hapusgenre&id_genre=<?= $pecah['id_genre'] ?>" class="btn-danger btn"><i class='fas fa-trash-alt'></i> hapus</a>
 			</td>
 		</tr>
 		

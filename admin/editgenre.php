@@ -21,7 +21,7 @@ include 'koneksi.php';
 	<?php
 
 $id_genre =$_GET['id_genre'];
-$ambil =$koneksi->query("SELECT * FROM genre");
+$ambil =$koneksi->query("SELECT * FROM genre WHERE id_genre = '$id_genre'");
 $pecah = $ambil->fetch_assoc();
 ?>
 	<form method="post" enctype="multipart/form-data">
@@ -37,6 +37,15 @@ $pecah = $ambil->fetch_assoc();
 	</div>
 </div>
 
-
 </body>
 </html>
+
+<?php
+	if (isset($_POST['save'])) {
+		$koneksi->query("UPDATE genre SET nama_genre = '$_POST[nama_genre]' WHERE id_genre = '$id_genre'");
+
+		echo "<script>alert('Genre diubah!');</script>";
+		echo '<script type="text/javascript">location="index.php?halaman=genre"</script>';
+	}
+
+?>

@@ -24,12 +24,12 @@
 		$id_user = $_SESSION['user']['id_user'];
 
 		$ambilplaylist = $koneksi->query("SELECT id_user_playlist, nama_playlist FROM user_playlist WHERE id_user = '$id_user'");
-
-		while ($datapl = $ambilplaylist->fetch_assoc()) {
-			$banyaklagu = $ambillagu = $koneksi->query("SELECT id_song FROM user_playlist_song WHERE id_user_playlist = '$datapl[id_user_playlist]'");
+			while ($datapl = $ambilplaylist->fetch_assoc()){
+				$banyaklagu = $koneksi->query("SELECT count(id_song) AS jumlah FROM user_playlist_song WHERE id_user_playlist = '$datapl[id_user_playlist]'")->fetch_assoc();
 		?>
-			<h2>- <a href="playlist_song.php?id=<?= $datapl['id_user_playlist'] ?>"><?= $datapl['nama_playlist'] ?></a> <?= number_format($banyaklagu->num_rows); ?> song(s)</h2>
-			<br>
+		<h2>- <a href="playlist_song.php?id=<?= $datapl['id_user_playlist'] ?>"><?= $datapl['nama_playlist'] ?></a> <?= number_format($banyaklagu['jumlah']); ?> song(s)</h2>
+		<br>
+
 		<?php } ?>
 	</div>
 </div>

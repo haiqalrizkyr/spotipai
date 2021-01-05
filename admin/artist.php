@@ -32,8 +32,8 @@
 			<td><?php echo $nomor; ?></td>
 			<td><?php echo $pecah['nama_artist']; ?></td>
 			<td>
-			<a href="index.php?halaman=editartist" class="btn btn-warning"><i class='fas fa-edit' ></i> edit</a>
-			<a href="index.php?halaman=hapusartist" class="btn-danger btn"><i class='fas fa-trash-alt'></i> hapus</a>
+			<a href="index.php?halaman=editartist&id=<?= $pecah['id_artist'] ?>" class="btn btn-warning"><i class='fas fa-edit' ></i> edit</a>
+			<a onclick="return confirm('Yakin ingin hapus?')" href="index.php?halaman=hapusartist&id=<?= $pecah['id_artist'] ?>" class="btn-danger btn"><i class='fas fa-trash-alt'></i> hapus</a>
 			</td>
 		</tr>
 		 <?php $nomor++; ?>
