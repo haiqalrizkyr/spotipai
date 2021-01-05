@@ -3,7 +3,7 @@ session_start();
 //koneksi ke database
 $koneksi= new mysqli("localhost","root","","spotipai");
 
-if (!isset($_SESSION['user'])) 
+if (!isset($_SESSION['admin'])) 
 {
    echo "<script>alert('Anda harus login');</script>";
    echo "<script>location='login.php';</script>";
@@ -52,7 +52,7 @@ font-size: 20px;">&nbsp; <a href="logout.php" class="btn btn-primary square-btn-
                     <li><a class="active-menu"  href="index.php "><i class="fa fa-home fa-3x" style="font-size:36px"></i> Home</a></li>
                     <li><a class="active-menu"  href="index.php?halaman=daftar_lagu"><i class="fa fa-music" style="font-size:36px"></i> Daftar Lagu</a></li>
                     <li><a class="active-menu"  href="index.php?halaman=genre"><i class="material-icons" style="font-size:36px">&#xe063;</i> Genre</a></li>
-                    <li><a class="active-menu"  href="index.php?halaman=playlist"><i class="material-icons" style="font-size:36px">&#xe03d;</i> Playlist</a></li>
+                    <li><a class="active-menu"  href="index.php?halaman=album"><i class="material-icons" style="font-size:36px">&#xe03d;</i> Album</a></li>
                     <li><a class="active-menu"  href="index.php?halaman=artist"><i class="fas fa-microphone" style="font-size:36px">&nbsp;</i> Artist</a></li>
                     <li><a class="active-menu"  href="index.php?halaman=logout"><i class="fa fa-minus-circle fa-3x"></i> Logout</a></li>
                 </li>  
@@ -71,9 +71,9 @@ font-size: 20px;">&nbsp; <a href="logout.php" class="btn btn-primary square-btn-
                     {
                         include 'genre.php';
                     }
-                    elseif ($_GET['halaman']=="playlist")
+                    elseif ($_GET['halaman']=="album")
                     {
-                        include 'playlist.php';
+                        include 'album.php';
                     }
                     elseif ($_GET['halaman']=="artist")
                     {
@@ -99,6 +99,10 @@ font-size: 20px;">&nbsp; <a href="logout.php" class="btn btn-primary square-btn-
                     {
                         include 'hapuslagu.php';
                     }
+                     elseif ($_GET['halaman']=="songgenre")
+                    {
+                        include 'songgenre.php';
+                    }
                     elseif ($_GET['halaman']=="tambahgenre")
                     {
                         include 'tambahgenre.php';
@@ -111,17 +115,17 @@ font-size: 20px;">&nbsp; <a href="logout.php" class="btn btn-primary square-btn-
                     {
                         include 'hapusgenre.php';
                     }
-                    elseif ($_GET['halaman']=="tambahplaylist")
+                    elseif ($_GET['halaman']=="tambahalbum")
                     {
-                        include 'tambahplaylist.php';
+                        include 'tambahalbum.php';
                     }
-                    elseif ($_GET['halaman']=="editplaylist")
+                    elseif ($_GET['halaman']=="editalbum")
                     {
-                        include 'editplaylist.php';
+                        include 'editalbum.php';
                     }
-                    elseif ($_GET['halaman']=="hapusplaylist")
+                    elseif ($_GET['halaman']=="hapusalbum")
                     {
-                        include 'hapusplaylist.php';
+                        include 'hapusalbum.php';
                     }
                     elseif ($_GET['halaman']=="tambahartist")
                     {

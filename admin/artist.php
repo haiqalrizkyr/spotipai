@@ -25,16 +25,21 @@
 		</tr>
 	</thead>
     <tbody>
-
+<?php $nomor=1; ?>
+    	<?php $ambil=$koneksi->query("SELECT * FROM artist"); ?>
+    	<?php while ($pecah=$ambil->fetch_assoc()){ ?>
 		<tr>
-			<td>1</td>
-			<td>Adam Levine</td>
+			<td><?php echo $nomor; ?></td>
+			<td><?php echo $pecah['nama_artist']; ?></td>
 			<td>
 			<a href="index.php?halaman=editartist" class="btn btn-warning"><i class='fas fa-edit' ></i> edit</a>
 			<a href="index.php?halaman=hapusartist" class="btn-danger btn"><i class='fas fa-trash-alt'></i> hapus</a>
 			</td>
 		</tr>
-		
+		 <?php $nomor++; ?>
+    <?php
+    }
+    ?>
 		
 
 	</tbody>
