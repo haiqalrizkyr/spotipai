@@ -4,9 +4,9 @@ session_start();
 include 'koneksi.php';
 
 if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
-        echo "<script> alert('Anda belum login. Silakan login terlebih dahulu!') </script>";
-        echo "<script>location='index.php';</script>";
-    }
+    echo "<script> alert('Anda belum login. Silakan login terlebih dahulu!') </script>";
+    echo "<script>location='index.php';</script>";
+}
 
 ?>
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
     ?>
 
     <div class="content">
-        <div class="container" style="width:100%; background-color: #313131;">
+        <div class="container" style="width:100%; background-color: #313131; border-radius:35px">
             <table style="margin-top: 70px; color:white; text-align:center" align="center">
                 <tr>
                     <td><button style="margin-top:30px;padding: 90px; background-color: white; border-radius: 200px;" disabled><i class="fas fa-user fa-7x"></i></button></td>
