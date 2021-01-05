@@ -16,7 +16,6 @@
     <table id="example" class="table table-bordered">
 	<a href="index.php?halaman=tambahgenre" id="right" class="btn btn-success"><i class='fas fa-folder-plus'></i> Tambah Genre</a>
 	<br><br>
-	
 	<thead>
 		<tr>
 			<th>No</th>
@@ -25,16 +24,21 @@
 		</tr>
 	</thead>
     <tbody>
-
+<?php $nomor=1; ?>
+    	<?php $ambil=$koneksi->query("SELECT * FROM genre"); ?>
+    	<?php while ($pecah=$ambil->fetch_assoc()){ ?>
 		<tr>
-			<td>1</td>
-			<td>Pop</td>
+			<td><?php echo $nomor++; ?></td>
+			<td><?php echo $pecah['nama_genre']; ?></td>
 			<td>
 			<a href="index.php?halaman=editgenre" class="btn btn-warning"><i class='fas fa-edit' ></i> edit</a>
 			<a href="index.php?halaman=hapusgenre" class="btn-danger btn"><i class='fas fa-trash-alt'></i> hapus</a>
 			</td>
 		</tr>
 		
+    <?php
+    }
+    ?>
 		
 
 	</tbody>
