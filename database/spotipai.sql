@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2021 at 10:38 PM
+-- Generation Time: Jan 05, 2021 at 05:58 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -216,7 +216,7 @@ INSERT INTO `song_genre` (`id_song_genre`, `id_song`, `id_genre`) VALUES
 CREATE TABLE `user` (
   `id_user` int(3) NOT NULL,
   `id_user_role` int(1) NOT NULL,
-  `username` varchar(10) NOT NULL,
+  `username` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
@@ -228,7 +228,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `id_user_role`, `username`, `email`, `nama`, `password`) VALUES
 (1, 1, 'lais', 'lais315@gmail.com', 'Lais', 'lais'),
-(3, 2, 'arsyfpro', 'arsya@mail.com', 'Arsya Fikri Gengs', '12345678');
+(3, 2, 'arsyfpro', 'arsya@mail.com', 'Arsya Fikri Gengs', '12345678'),
+(5, 2, 'haiqalrizkyr', 'haiqalrizkyr@gmail.com', 'Haiqal Rizky Ramadhan', 'password');
 
 -- --------------------------------------------------------
 
@@ -249,7 +250,8 @@ CREATE TABLE `user_fav_song` (
 INSERT INTO `user_fav_song` (`id_user_fav_song`, `id_user`, `id_song`) VALUES
 (3, 3, 7),
 (4, 3, 2),
-(5, 3, 1);
+(5, 3, 1),
+(7, 5, 3);
 
 -- --------------------------------------------------------
 
@@ -268,7 +270,8 @@ CREATE TABLE `user_playlist` (
 --
 
 INSERT INTO `user_playlist` (`id_user_playlist`, `id_user`, `nama_playlist`) VALUES
-(2, 3, 'Lagu Santai');
+(2, 3, 'Lagu Santai'),
+(3, 5, 'MyPlaylist');
 
 -- --------------------------------------------------------
 
@@ -289,7 +292,10 @@ CREATE TABLE `user_playlist_song` (
 INSERT INTO `user_playlist_song` (`id_user_playlist_song`, `id_user_playlist`, `id_song`) VALUES
 (9, 2, 6),
 (10, 2, 7),
-(11, 2, 4);
+(11, 2, 4),
+(12, 3, 7),
+(13, 3, 3),
+(14, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -448,25 +454,25 @@ ALTER TABLE `song_genre`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user_fav_song`
 --
 ALTER TABLE `user_fav_song`
-  MODIFY `id_user_fav_song` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user_fav_song` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user_playlist`
 --
 ALTER TABLE `user_playlist`
-  MODIFY `id_user_playlist` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user_playlist` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_playlist_song`
 --
 ALTER TABLE `user_playlist_song`
-  MODIFY `id_user_playlist_song` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_user_playlist_song` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `user_role`
