@@ -20,8 +20,8 @@ include 'koneksi.php';
 
 	<?php
 
-$id_artist =$_GET['id_artist'];
-$ambil =$koneksi->query("SELECT * FROM artist");
+$id_artist =$_GET['id'];
+$ambil =$koneksi->query("SELECT * FROM artist WHERE id_artist = '$id_artist'");
 $pecah = $ambil->fetch_assoc();
 ?>
 	<form method="post" enctype="multipart/form-data">
@@ -40,3 +40,13 @@ $pecah = $ambil->fetch_assoc();
 
 </body>
 </html>
+
+<?php
+	if (isset($_POST['save'])) {
+		$koneksi->query("UPDATE artist SET nama_artist = '$_POST[nama_artist]' WHERE id_artist = '$id_artist'");
+
+		echo "<script>alert('Nama artist diubah!');</script>";
+		echo '<script type="text/javascript">location="index.php?halaman=artist"</script>';
+	}
+
+?>

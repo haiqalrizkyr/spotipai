@@ -2,11 +2,13 @@
 
 include 'koneksi.php';
 
-$nama_genre = $_POST['nama_genre'];
+$id = $_GET['id_genre'];
 
-$data = mysqli_query($koneksi, "DELETE FROM genre WHERE nama_genre = '$nama_genre'");
+mysqli_query($koneksi, "DELETE FROM song_genre WHERE id_genre = '$id'");
 
-echo "<script>alert('jadwal terhapus');</script>";
-	// echo "<script>location='index.php?halaman=genre';</script>";
+mysqli_query($koneksi, "DELETE FROM genre WHERE id_genre = '$id'");
+
+echo "<script>alert('Genre dihapus!');</script>";
+		echo '<script type="text/javascript">location="index.php?halaman=genre"</script>';
 
 ?>

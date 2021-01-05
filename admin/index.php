@@ -103,6 +103,14 @@ font-size: 20px;">&nbsp; <a href="logout.php" class="btn btn-primary square-btn-
                     {
                         include 'songgenre.php';
                     }
+                    elseif ($_GET['halaman']=="songartist")
+                    {
+                        include 'songartist.php';
+                    }
+                    elseif ($_GET['halaman']=="songalbum")
+                    {
+                        include 'songalbum.php';
+                    }
                     elseif ($_GET['halaman']=="tambahgenre")
                     {
                         include 'tambahgenre.php';
