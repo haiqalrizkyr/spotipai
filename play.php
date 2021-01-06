@@ -90,7 +90,7 @@
             </table>
             <br>
             <div class="audio" align="center">
-            	<audio controls>
+            	<audio controls id="player">
                     <source src="song/<?= $datalagu['song_file'] ?>" type="audio/mpeg">
                     Your browser does not support the audio tag.
                 </audio>
@@ -126,6 +126,19 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() { 
+                $("#player").one("play", function() { 
+                    $.ajax({
+                        type: "GET",
+                        dataType: "html",
+                        url: "play_count.php?id=<?= $id_lagu ?>"
+                    });
+                }); 
+            }); 
+    </script>
 </body>
 
 </html>

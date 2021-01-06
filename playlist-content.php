@@ -65,8 +65,9 @@
 <?php
 if (isset($_POST['simpan'])) {
 	$id_user = $_SESSION['user']['id_user'];
+	$tanggal = date("d-m-Y");
 
-	$addplaylist = "INSERT INTO user_playlist (id_user, nama_playlist) VALUES ('$id_user', '$_POST[nama_playlist]')";
+	$addplaylist = "INSERT INTO user_playlist (id_user, nama_playlist, date_created) VALUES ('$id_user', '$_POST[nama_playlist]', '$tanggal')";
 
 	$koneksi->query($addplaylist);
 

@@ -20,9 +20,10 @@ session_start();
 						  </div>';
 			} else {
 				$role_user = 2;
+				$tanggal = date("d-m-Y");
 
-				$querymasukkan = "INSERT INTO user(id_user_role, username, email, nama, password)
-										VALUES ('$role_user', '$_POST[username]', '$_POST[email]', '$_POST[nama]', '$_POST[sandi]')";
+				$querymasukkan = "INSERT INTO user(id_user_role, username, email, nama, password, date_signup)
+										VALUES ('$role_user', '$_POST[username]', '$_POST[email]', '$_POST[nama]', '$_POST[sandi]', '$tanggal')";
 
 				mysqli_query($koneksi, $querymasukkan);
 
