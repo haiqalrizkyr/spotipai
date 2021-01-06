@@ -31,6 +31,17 @@
 			        $('#tabel-data').DataTable();
 			    });
 			</script>
+			<style type="text/css">
+				a {
+					text-decoration: none;
+					color: inherit;
+				}
+
+				a:hover {
+					text-decoration: underline;
+					color: inherit;
+				}
+			</style>
 	</head>
 	<body style="background-color: #0e0e0d">
 		<?php
@@ -73,7 +84,7 @@
 					<td><a href="play.php?id=<?= $lagu['id_song'] ?>"><?= $lagu['title'] ?></a></td>
 					<td>
 						<?php
-							$queryartis = "SELECT a.nama_artist FROM song s JOIN song_artist sa 
+							$queryartis = "SELECT a.id_artist, a.nama_artist FROM song s JOIN song_artist sa 
 											ON s.id_song = sa.id_song AND s.id_song = '$lagu[id_song]' JOIN artist a 
 											WHERE sa.id_artist = a.id_artist";
 
@@ -81,7 +92,7 @@
 
 							while ($artis = $ambilartis->fetch_assoc()) {
 						?>
-							<?= $artis['nama_artist'] ?> <br>
+							<a href="#?id_artist=<?= $artis['id_artist'] ?>"><?= $artis['nama_artist'] ?></a> <br>
 
 						<?php } ?>
 					</td>
