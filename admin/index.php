@@ -54,6 +54,8 @@ font-size: 20px;">&nbsp; <a href="logout.php" class="btn btn-primary square-btn-
                     <li><a class="active-menu"  href="index.php?halaman=genre"><i class="material-icons" style="font-size:36px">&#xe063;</i> Genre</a></li>
                     <li><a class="active-menu"  href="index.php?halaman=album"><i class="material-icons" style="font-size:36px">&#xe03d;</i> Album</a></li>
                     <li><a class="active-menu"  href="index.php?halaman=artist"><i class="fas fa-microphone" style="font-size:36px">&nbsp;</i> Artist</a></li>
+                    <li><a class="active-menu"  href="index.php?halaman=daftar_user"><i class="fa fa-users" style="font-size: 36px;"></i>Daftar User</a></li>
+                    <li><a class="active-menu"  href="index.php?halaman=playlist_user"><i class="fa fa-user" style="font-size: 36px;"></i>Playlist User</a></li>
                     <li><a class="active-menu"  href="index.php?halaman=logout"><i class="fa fa-minus-circle fa-3x"></i> Logout</a></li>
                 </li>  
                 </ul>
@@ -86,6 +88,18 @@ font-size: 20px;">&nbsp; <a href="logout.php" class="btn btn-primary square-btn-
                     elseif ($_GET['halaman']=="daftar_lagu")
                     {
                         include 'daftar_lagu.php';
+                    }
+                    elseif ($_GET['halaman']=="daftar_user")
+                    {
+                        include 'daftar_user.php';
+                    }
+                    elseif ($_GET['halaman']=="playlist_user")
+                    {
+                        include 'playlist_user.php';
+                    }
+                     elseif ($_GET['halaman']=="detail_playlist_user")
+                    {
+                        include 'detail_playlist_user.php';
                     }
                     elseif ($_GET['halaman']=="tambahlagu")
                     {
