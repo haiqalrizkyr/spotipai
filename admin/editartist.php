@@ -29,9 +29,21 @@ $pecah = $ambil->fetch_assoc();
 	 	<label class="col-sm-4 control-label">artist<small id="small"> *</small></label>
 	 	<input class="form-control" type="text" name="nama_artist" value="<?php echo $pecah['nama_artist']; ?>" required>
 	 </div>
+	 <div class="form-group">
+	 	<label class="col-sm-4 control-label">About<small id="small"> *</small></label>
+	 	<textarea type="text" class="form-control" name="about" required></textarea>
+	 </div>
+	 
+	 <div class="form-group">
+	 	<label class="col-sm-4 control-label">foto<small id="small"> *</small></label>
+	 	<input type="file" class="form-control" name="foto" accept="image/*"  required></input>
+	 </div>
+	 <div class="form-group">
+	 	<center><img src="" width="250"></center>
+	 </div>
 	 <small id="small">* Wajib Diisi</small>
 	 <br><br>
-		 <a  href="index.php?halaman=genre" class="btn btn-info"><i class='fas fa-reply' ></i> BACK</a>
+		 <a  href="index.php?halaman=artist" class="btn btn-info"><i class='fas fa-reply' ></i> BACK</a>
 	 <button class ="btn btn-primary" name="save"><i class='fas fa-save'></i> EDIT</button>
 	 </form>
 	</div>

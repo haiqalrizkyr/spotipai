@@ -9,6 +9,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <title>Daftar Lagu</title>
+    <style type="text/css">
+    	.atas{
+    		margin-top: -60px;
+    	}
+    </style>
 </head>
 <body>
     <h2 align="center">Daftar Lagu</h2>
@@ -20,12 +25,18 @@
 	
 	<thead>
 		<tr>
-			<th>No</th>
-			<th>Title</th>
-			<th>Year</th>
-			<th>Song_file</th>
-			<th>aksi</th>
+			<th class="atas" style="text-align: center;" rowspan="2">No</th>
+			<th class="atas" style="text-align: center;" rowspan="2">Title</th>
+			<th class="atas" style="text-align: center;" rowspan="2">Year</th>
+			<th class="atas" style="text-align: center;" rowspan="2">Song_file</th>
+			<th style="text-align: center;" colspan="2">Berapa Kali</th>
+			<th  class="atas"style="text-align: center;" rowspan="2" width="150px;">aksi</th>
 		</tr>
+		<tr>
+			<th>Diputar</th>
+			<th>Difavorit</th>
+		</tr>
+
 	</thead>
     <tbody>
     	<?php $nomor=1; ?>
@@ -36,6 +47,8 @@
 			<td><?php echo $pecah['title']; ?></td>
 			<td><?php echo $pecah['year']; ?></td>
 			<td><?php echo $pecah['song_file']; ?></td>
+			<td></td>
+			<td></td>
 			<td>
 			<a href="index.php?halaman=editlagu&id_song=<?= $pecah['id_song'] ?>" class="btn btn-warning"><i class='fas fa-edit' ></i> edit</a>
 			<a onclick="return confirm('Yakin ingin hapus lagu?')" href="index.php?halaman=hapuslagu&id_song=<?= $pecah['id_song'] ?>" class="btn-danger btn"><i class='fas fa-trash-alt'></i> hapus</a>

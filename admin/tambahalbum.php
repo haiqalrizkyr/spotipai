@@ -12,6 +12,14 @@
 	 	<input type="text" class="form-control"  name="album"  required></input>
 	 </div>
 	 <div class="form-group">
+	 	<label class="col-sm-4 control-label">Artist<small id="small"> *</small></label>
+	 	<select class="form-control" name="artist" required>
+	 		<option value="">-- Pilih Artist --</option>
+	 		<option>1</option>
+	 		<option>2</option>
+	 	</select>  
+	 </div>
+	 <div class="form-group">
 	 	<label class="col-sm-4 control-label">Year<small id="small"> *</small></label>
 	 	<input type="number" min="0" class="form-control"  name="year"  required></input>
 	 </div>

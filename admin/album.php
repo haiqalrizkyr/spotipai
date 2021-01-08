@@ -21,6 +21,7 @@
 		<tr>
 			<th>No</th>
 			<th>Judul dan tahun</th>
+			<th>Artist</th>
 			<th>aksi</th>
 		</tr>
 	</thead>
@@ -33,6 +34,7 @@
 		<tr>
 			<td><?= $no ?></td>
 			<td><?= $pecah['title'] ?> (<?= $pecah['year'] ?>)</td>
+			<td></td>
 			<td>
 			<a href="index.php?halaman=editalbum&id=<?= $pecah['id_album'] ?>" class="btn btn-warning"><i class='fas fa-edit' ></i> edit</a>
 			<a onclick="return confirm('Yakin ingin hapus?')" href="index.php?halaman=hapusalbum&id=<?= $pecah['id_album'] ?>" class="btn-danger btn"><i class='fas fa-trash-alt'></i> hapus</a>

@@ -17,13 +17,17 @@
 	 	<label class="col-sm-4 control-label">Album<small id="small"> *</small></label>
 	 	<input type="text" class="form-control"  name="nama_album" value="<?= $dataalbum['title'] ?>" required></input>
 	 </div>
+	  <div class="form-group">
+	 	<label class="col-sm-4 control-label">artist<small id="small"> *</small></label>
+	 	<input class="form-control" type="text" name="nama_artist" value="" required>
+	 </div> 
 	 <div class="form-group">
 	 	<label class="col-sm-4 control-label">Year<small id="small"> *</small></label>
 	 	<input type="number" min="0" class="form-control"  name="year_album" value="<?= $dataalbum['year'] ?>" required></input>
 	 </div>
 	 <small id="small">* Wajib Diisi</small>
 	 <br><br>
-		 <a  href="index.php?halaman=playlist" class="btn btn-info"><i class='fas fa-reply' ></i> BACK</a>
+		 <a  href="index.php?halaman=album" class="btn btn-info"><i class='fas fa-reply' ></i> BACK</a>
 	 <button class ="btn btn-primary" name="save"><i class='fas fa-save'></i> EDIT</button>
 	 </form>
 
