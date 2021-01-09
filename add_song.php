@@ -92,7 +92,7 @@
 
 							while ($artis = $ambilartis->fetch_assoc()) {
 						?>
-							<a href="#?id_artist=<?= $artis['id_artist'] ?>"><?= $artis['nama_artist'] ?></a> <br>
+							<a href="about_artist.php?id_artist=<?= $artis['id_artist'] ?>"><?= $artis['nama_artist'] ?></a> <br>
 
 						<?php } ?>
 					</td>

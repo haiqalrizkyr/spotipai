@@ -1,3 +1,14 @@
+<?php
+  session_start();
+
+  include 'koneksi.php';
+
+  $id_artist = $_GET['id_artist'];
+
+  $artist = $koneksi->query("SELECT nama_artist, artist_image, about FROM artist WHERE id_artist = '$id_artist'")->fetch_assoc();
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -72,6 +83,17 @@
   transform: translate(-50%, -50%);
   text-align: center;
 }</style>
+<style type="text/css">
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+
+        a:hover {
+          text-decoration: underline;
+          color: inherit;
+        }
+      </style>
 </head>
 <body style="background-color: #0e0e0d">
 		<?php
@@ -81,49 +103,84 @@
 <div class="content">
     <div class="container">
     <div id="image_div">
- <img src="ariana.jpg" style="width:100%">
+ <img src="artist_img/<?= $artist['artist_image'] ?>" style="width:100%">
  <div class="overlay">
- <div class="text">Ariana is an American singer and actress. Born in Boca Raton, Florida, Grande began her career at age 15 in the 2008 Broadway musical 13. She rose to fame for her role as Cat Valentine in the Nickelodeon television series Victorious (2010–2013) and Sam & Cat (2013–2014)</div>
- </div><p id="image_label"><span>Ariana Grande</span></p>
+    <div class="text">
+      <?= $artist['about'] ?>
+    </div>
+ </div>
+ <p id="image_label"><span><?= $artist['nama_artist'] ?></span></p>
 </div>
 </div>
-    <h3 style="margin-top: 50px; color: white;">Album</h><br><br>
-        <div class="content">
-                <div class="container">
+    <h3 style="margin-top: 50px; color: white;">Album</h3>
+        <div>
+        <?php
+          $ambilalbum = $koneksi->query("SELECT id_album, title, year FROM album WHERE id_artist = '$id_artist'");
+        ?>
+          <div>
                 <table class="table table-dark table-hover table-borderless">
                     <thead>
-				        <tr>
-					        <th scope="col">no.</th>
-					        <th scope="col">Album</th>
-                            <th scope="col">Total</th>
-				        </tr>
+      				        <tr>
+      					        <th scope="col">#</th>
+      					        <th style="text-align: center;" scope="col">Title</th>
+                        <th style="text-align: center;" scope="col">Release Year</th>
+      				        </tr>
+			              </thead>
                     <tbody>
-                        <td>1</td>
-                        <td>position</td>
-                        <td>3 song</td>
+                      <?php 
+                        $no = 1;
+                        while($album = $ambilalbum->fetch_assoc()) { 
+                      ?>
+                      <tr>
+                        <td><?= $no ?></td>
+                        <td style="text-align: center;"><?php echo "<a href='album_song.php?id_album=".$album['id_album']."'>".$album['title']."</a>" ?></td>
+                        <td style="text-align: center;"><?= $album['year'] ?></td>
+                      </tr>
+                      <?php 
+                        $no++;
+                        } 
+                      ?>
                     </tbody>
                 </table>
-			</thead>
-    </div>
-</div>
-<h3 style="margin-top: 50px; color: white;">Song</h><br><br>
-        <div class="content">
-                <div class="container">
+          </div>
+        </div>
+<br><br><br>
+<h3 style="color: white;">Song</h3>
+        <div>
+          <?php
+            $ambillagu = $koneksi->query("SELECT s.id_song, s.title, s.played FROM song s JOIN song_artist sa ON s.id_song = sa.id_song WHERE sa.id_artist = '$id_artist'");
+          ?>
+                <div>
                 <table class="table table-dark table-hover table-borderless">
-                    <thead>
-				        <tr>
-					        <th scope="col">no.</th>
-					        <th scope="col">Song</th>
-                            <th scope="col">Duration</th>
-				        </tr>
+                 <thead>
+				          <tr>
+    					        <th scope="col">#</th>
+    					        <th style="text-align: center;" scope="col">Title</th>
+                      <th style="text-align: center;" scope="col">Played</th>
+                      <th style="text-align: center;" scope="col">Favorited</th>
+				          </tr>
+			           </thead>
                     <tbody>
-                        <td>1</td>
-                        <td>34+35</td>
-                        <td>3:03</td>
+                      <?php
+                        $no = 1;
+                        while($lagu = $ambillagu->fetch_assoc()) {
+
+                          $countfav = $koneksi->query("SELECT id_user_fav_song FROM user_fav_song WHERE id_song = '$lagu[id_song]'");
+                      ?>
+                      <tr>
+                        <td><?= $no ?></td>
+                        <td style="text-align: center;"><a href="play.php?id=<?= $lagu['id_song'] ?>"><?= $lagu['title'] ?></a></td>
+                        <td style="text-align: center;"><?= $lagu['played'] ?></td>
+                        <td style="text-align: center;"><?= number_format($countfav->num_rows) ?></td>
+                      </tr>
+                      <?php
+                          $no++;
+                        }
+                      ?>
                     </tbody>
                 </table>
-			</thead>
     </div>
 </div>
+<br><br>
 	</body>
 </html>
