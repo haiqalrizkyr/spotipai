@@ -36,7 +36,7 @@
 		?>
 		<div class="content">
 			<h1 style="color: white; margin-top: 70px;"><?= $dataalbum['title'] ?> (<?= $dataalbum['year'] ?>)</h1>
-			<h3 style="color: white;"><a href="#?id_artist=<?= $dataalbum['id_artist'] ?>"><?= $dataalbum['nama_artist'] ?></a></h3>
+			<h3 style="color: white;"><a href="about_artist.php?id_artist=<?= $dataalbum['id_artist'] ?>"><?= $dataalbum['nama_artist'] ?></a></h3>
 			<p style="color: white;"><?= number_format($query->num_rows) ?> song(s) in this album</p>
 			<br>
 			<div class="container">
@@ -71,7 +71,7 @@
 
 									while ($artis = $ambilartis->fetch_assoc()) {
 								?>
-									<a href="#?id_artist=<?= $artis['id_artist'] ?>"><?= $artis['nama_artist'] ?></a> <br>
+									<a href="about_artist.php?id_artist=<?= $artis['id_artist'] ?>"><?= $artis['nama_artist'] ?></a> <br>
 
 								<?php } ?>
 							</td>
