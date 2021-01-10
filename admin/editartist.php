@@ -21,7 +21,7 @@ include 'koneksi.php';
 	<?php
 
 $id_artist =$_GET['id'];
-$ambil =$koneksi->query("SELECT * FROM artist WHERE id_artist = '$id_artist'");
+$ambil =$koneksi->query("SELECT nama_artist, artist_image, about FROM artist WHERE id_artist = '$id_artist'");
 $pecah = $ambil->fetch_assoc();
 ?>
 	<form method="post" enctype="multipart/form-data">
@@ -31,15 +31,13 @@ $pecah = $ambil->fetch_assoc();
 	 </div>
 	 <div class="form-group">
 	 	<label class="col-sm-4 control-label">About<small id="small"> *</small></label>
-	 	<textarea type="text" class="form-control" name="about" required></textarea>
+	 	<textarea type="text" class="form-control" name="about" required><?= $pecah['about'] ?></textarea>
 	 </div>
 	 
 	 <div class="form-group">
-	 	<label class="col-sm-4 control-label">foto<small id="small"> *</small></label>
-	 	<input type="file" class="form-control" name="foto" accept="image/*"  required></input>
-	 </div>
-	 <div class="form-group">
-	 	<center><img src="" width="250"></center>
+	 	<label class="col-sm-4 control-label">foto<small id="small"> *</small></label><br><br>
+	 	<img style="width: 200px" src="../artist_img/<?= $pecah['artist_image'] ?>"><br><br>
+	 	<input type="file" class="form-control" name="foto" accept="image/*"></input>
 	 </div>
 	 <small id="small">* Wajib Diisi</small>
 	 <br><br>
@@ -55,9 +53,23 @@ $pecah = $ambil->fetch_assoc();
 
 <?php
 	if (isset($_POST['save'])) {
-		$koneksi->query("UPDATE artist SET nama_artist = '$_POST[nama_artist]' WHERE id_artist = '$id_artist'");
+		$namafoto = addslashes($_FILES['foto']['name']);
+		$lokasi= $_FILES['foto']['tmp_name'];
 
-		echo "<script>alert('Nama artist diubah!');</script>";
+		$nama = addslashes($_POST['nama_artist']);
+		$about = addslashes($_POST['about']);
+
+		if (!empty($lokasi)) {
+			move_uploaded_file($lokasi, "../artist_img/".$namafoto);
+
+			$koneksi->query("UPDATE artist SET nama_artist = '$nama', artist_image = '$namafoto', about = '$about' WHERE id_artist = '$id_artist'");			
+		}
+		else {
+
+			$koneksi->query("UPDATE artist SET nama_artist = '$nama', about = '$about' WHERE id_artist = '$id_artist'");
+		}
+
+		echo "<script>alert('Data artist diubah!');</script>";
 		echo '<script type="text/javascript">location="index.php?halaman=artist"</script>';
 	}
 

@@ -33,7 +33,7 @@ include 'koneksi.php';
 	<?php 
 if(isset($_POST['save']))
 {
-	$nama_genre = $_POST['nama_genre'];
+	$nama_genre = addslashes($_POST['nama_genre']);
 	mysqli_query($koneksi,"INSERT INTO genre
 	(nama_genre)
 	VALUES('$nama_genre')");

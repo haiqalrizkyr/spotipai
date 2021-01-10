@@ -18,8 +18,24 @@
 	 	<input type="text" class="form-control"  name="nama_album" value="<?= $dataalbum['title'] ?>" required></input>
 	 </div>
 	  <div class="form-group">
-	 	<label class="col-sm-4 control-label">artist<small id="small"> *</small></label>
-	 	<input class="form-control" type="text" name="nama_artist" value="" required>
+	 	<label class="col-sm-4 control-label">Artist<small id="small"> *</small></label>
+	 	<select class="form-control" name="nama_artist" required>
+	 		<option value="">-- Pilih Artist</option>
+	 		<?php 
+	 			$ambilartist = $koneksi->query("SELECT id_artist, nama_artist FROM artist");
+
+	 			while($artist = $ambilartist->fetch_assoc()){
+
+	 			  if($dataalbum['id_artist'] == $artist['id_artist']) :
+	 		?>
+	 				<option value="<?= $artist['id_artist'] ?>" selected><?= $artist['nama_artist'] ?></option>
+
+	 			  <?php else : ?>
+	 			  	<option value="<?= $artist['id_artist'] ?>"><?= $artist['nama_artist'] ?></option>
+
+	 			  <?php endif ?>
+	 		<?php } ?>
+	 	</select>
 	 </div> 
 	 <div class="form-group">
 	 	<label class="col-sm-4 control-label">Year<small id="small"> *</small></label>
@@ -33,7 +49,11 @@
 
 <?php
 	if (isset($_POST['save'])) {
-		$koneksi->query("UPDATE album SET title = '$_POST[nama_album]', year = '$_POST[year_album]' WHERE id_album = '$id_album'");
+		$title = addslashes($_POST['nama_album']);
+		$artist = $_POST['nama_artist'];
+		$year = $_POST['year_album'];
+
+		$koneksi->query("UPDATE album SET title = '$title', year = '$year', id_artist = '$artist' WHERE id_album = '$id_album'");
 
 		echo "<script>alert('Album diubah!');</script>";
 		echo '<script type="text/javascript">location="index.php?halaman=album"</script>';

@@ -140,18 +140,20 @@
 <?php
 	
 	if (isset($_POST['save'])) {
-		$nama = $_FILES['file']['name'];
+		$nama = addslashes($_FILES['file']['name']);
 		$lokasi= $_FILES['file']['tmp_name'];
+
+		$judul_lagu = addslashes($_POST['judul']);
 
 		if (!empty($lokasi)) {
 			
 			move_uploaded_file($lokasi, "../song/".$nama);
 
-			$koneksi->query("UPDATE song SET title = '$_POST[judul]', year = $_POST[year], song_file = '$nama' WHERE id_song = '$id_song'");
+			$koneksi->query("UPDATE song SET title = '$judul_lagu', year = $_POST[year], song_file = '$nama' WHERE id_song = '$id_song'");
 
 		}
 		else{
-			$koneksi->query("UPDATE song SET title = '$_POST[judul]', year = $_POST[year] WHERE id_song = '$id_song'");
+			$koneksi->query("UPDATE song SET title = '$judul_lagu', year = $_POST[year] WHERE id_song = '$id_song'");
 		}
 
 		echo "<script>alert('Data tersimpan.');</script>";

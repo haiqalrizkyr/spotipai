@@ -1,5 +1,4 @@
-
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,7 +27,7 @@
 			<th class="atas" style="text-align: center;" rowspan="2">No</th>
 			<th class="atas" style="text-align: center;" rowspan="2">Title</th>
 			<th class="atas" style="text-align: center;" rowspan="2">Year</th>
-			<th class="atas" style="text-align: center;" rowspan="2">Song_file</th>
+			<th class="atas" style="text-align: center;" rowspan="2">Song File</th>
 			<th style="text-align: center;" colspan="2">Berapa Kali</th>
 			<th  class="atas"style="text-align: center;" rowspan="2" width="150px;">aksi</th>
 		</tr>
@@ -41,14 +40,18 @@
     <tbody>
     	<?php $nomor=1; ?>
     	<?php $ambil=$koneksi->query("SELECT * FROM song"); ?>
-    	<?php while ($pecah=$ambil->fetch_assoc()){ ?>
+    	<?php 
+    		while ($pecah=$ambil->fetch_assoc()){
+
+    			$countfav = $koneksi->query("SELECT id_user_fav_song FROM user_fav_song WHERE id_song = '$pecah[id_song]'");
+    	?>
 		<tr>
 			<td><?php echo $nomor; ?></td>
 			<td><?php echo $pecah['title']; ?></td>
 			<td><?php echo $pecah['year']; ?></td>
 			<td><?php echo $pecah['song_file']; ?></td>
-			<td></td>
-			<td></td>
+			<td><?= number_format($pecah['played']) ?></td>
+			<td><?= number_format($countfav->num_rows) ?></td>
 			<td>
 			<a href="index.php?halaman=editlagu&id_song=<?= $pecah['id_song'] ?>" class="btn btn-warning"><i class='fas fa-edit' ></i> edit</a>
 			<a onclick="return confirm('Yakin ingin hapus lagu?')" href="index.php?halaman=hapuslagu&id_song=<?= $pecah['id_song'] ?>" class="btn-danger btn"><i class='fas fa-trash-alt'></i> hapus</a>

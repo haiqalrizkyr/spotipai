@@ -12,27 +12,24 @@ include 'koneksi.php';
 	<form method="post" enctype="multipart/form-data">
 	<div class="form-group">
 	 	<label class="col-sm-4 control-label">Judul Lagu<small id="small"> *</small></label>
-	 	<input class="form-control col-sm-4" type="text" name="title" required>
+	 	<input class="form-control col-sm-4" type="text" name="title" placeholder="Judul Lagu" required>
 	 </div>
      <div class="form-group">
 	 	<label class="col-sm-4 control-label">Tahun Rilis<small id="small"> *</small></label>
-	 	<input class="form-control col-sm-4" type="number" name="year" required>
+	 	<input class="form-control col-sm-4" type="number" name="year" placeholder="Tahun Rilis" required>
 	 </div>
      <div class="form-group">
-     <label class="col-sm-4 control-label">Lagu<small id="small"> *</small></label>
+     	<label class="col-sm-4 control-label">Lagu<small id="small"> *</small></label>
 		<input type="file" name="song_file" id="song_file" class="form-control col-sm-4" accept="audio/*" required>
 	 </div>
-	<!-- <div class="form-group">
-	 	<label class="col-sm-4 control-label">Album<small id="small"> *</small></label>
-	 	<select>
-	 		<option value="<?php echo $pecah ['id_album']; ?>"><?php echo $pecah['title']; ?></option>
-	 	</select>
-	 </div> -->
-	 <small id="small">* Wajib Diisi</small>
-	 <br>
-	 <a  href="index.php?halaman=daftar_lagu" class="btn btn-info"><i class='fas fa-reply' ></i> BACK</a>
-	 <button class ="btn btn-primary" name="save"><i class='fas fa-save'></i> SAVE</button>
+
+	 <br><br><br>
+	 <div>
+		 <a href="index.php?halaman=daftar_lagu" class="btn btn-info"><i class='fas fa-reply' ></i> BACK</a>
+		 <button class ="btn btn-primary" name="save"><i class='fas fa-save'></i> SAVE</button>
+	 </div>
 	</form>
+	 <small id="small">* Wajib Diisi</small>
 </div>
 </div>
 <!-- <select>
@@ -55,9 +52,9 @@ $koneksi->insert_id;
 <?php 
 if(isset($_POST['save']))
 {
-	$title = $_POST['title'];
+	$title = addslashes($_POST['title']);
 	$year = $_POST['year'];
-	$nama = $_FILES['song_file']['name'];
+	$nama = addslashes($_FILES['song_file']['name']);
 	$lokasi= $_FILES['song_file']['tmp_name'];
 	move_uploaded_file($lokasi, "../song/".$nama);
 	mysqli_query($koneksi,"INSERT INTO song (title, year, song_file) VALUES('$title','$year','$nama')");

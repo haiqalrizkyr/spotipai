@@ -23,7 +23,6 @@
 			<th>Username</th>
 			<th>Email</th>
 			<th>Tanggal Daftar</th>
-			<th>aksi</th>
 		</tr>
 	</thead>
     <tbody>
@@ -35,10 +34,7 @@
 			<td><?php echo $pecah['nama']; ?></td>
 			<td><?php echo $pecah['username']; ?></td>
 			<td><?php echo $pecah['email']; ?></td>
-			<td></td>
-			<td>
-			<a onclick="return confirm('Yakin ingin hapus?')" href="index.php?halaman=hapususer&id=" class="btn-danger btn"><i class='fas fa-trash-alt'></i> hapus</a>
-			</td>
+			<td><?= $pecah['date_signup'] ?></td>
 		</tr>
 		 <?php $nomor++; ?>
     <?php

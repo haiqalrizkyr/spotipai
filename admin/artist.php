@@ -21,6 +21,7 @@
 		<tr>
 			<th>No</th>
 			<th>Artist</th>
+			<th>Foto</th>
 			<th>About</th>
 			<th>Aksi</th>
 		</tr>
@@ -32,7 +33,8 @@
 		<tr>
 			<td><?php echo $nomor; ?></td>
 			<td><?php echo $pecah['nama_artist']; ?></td>
-			<td></td>
+			<td><img style="width: 200px" src="../artist_img/<?= $pecah['artist_image'] ?>"></td>
+			<td style="width: 480px"><?= $pecah['about'] ?></td>
 			<td>
 			<a href="index.php?halaman=editartist&id=<?= $pecah['id_artist'] ?>" class="btn btn-warning"><i class='fas fa-edit' ></i> edit</a>
 			<a onclick="return confirm('Yakin ingin hapus?')" href="index.php?halaman=hapusartist&id=<?= $pecah['id_artist'] ?>" class="btn-danger btn"><i class='fas fa-trash-alt'></i> hapus</a>
