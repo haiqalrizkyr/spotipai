@@ -9,19 +9,24 @@
 	<form method="post" enctype="multipart/form-data">
 	<div class="form-group">
 	 	<label class="col-sm-4 control-label">Album<small id="small"> *</small></label>
-	 	<input type="text" class="form-control"  name="album"  required></input>
+	 	<input type="text" class="form-control"  name="album" placeholder="Nama Album" required></input>
 	 </div>
 	 <div class="form-group">
 	 	<label class="col-sm-4 control-label">Artist<small id="small"> *</small></label>
 	 	<select class="form-control" name="artist" required>
 	 		<option value="">-- Pilih Artist --</option>
-	 		<option>1</option>
-	 		<option>2</option>
+	 		<?php
+	 			$ambilartist = $koneksi->query("SELECT id_artist, nama_artist FROM artist");
+
+	 			while ($dataartist = $ambilartist->fetch_assoc()){
+	 		?>
+	 				<option value="<?= $dataartist['id_artist'] ?>"><?= $dataartist['nama_artist'] ?></option>
+	 		<?php } ?>
 	 	</select>  
 	 </div>
 	 <div class="form-group">
 	 	<label class="col-sm-4 control-label">Year<small id="small"> *</small></label>
-	 	<input type="number" min="0" class="form-control"  name="year"  required></input>
+	 	<input type="number" min="0" class="form-control"  name="year" placeholder="Tahun Rilis" required></input>
 	 </div>
 	 <small id="small">* Wajib Diisi</small>
 	 <br><br>
@@ -31,7 +36,9 @@
 
 <?php
 	if (isset($_POST['save'])) {
-		$koneksi->query("INSERT INTO album (title, year) VALUES('$_POST[album]', '$_POST[year]')");
+		$nama_album = addslashes($_POST['album']);
+
+		$koneksi->query("INSERT INTO album (id_artist, title, year) VALUES('$_POST[artist]', '$nama_album', '$_POST[year]')");
 
 		echo "<script>alert('Album tersimpan!');</script>";
 		echo "<script>location='index.php?halaman=album';</script>";

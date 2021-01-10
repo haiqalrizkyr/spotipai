@@ -30,11 +30,13 @@
     		$no = 1;
     		$ambil = $koneksi->query("SELECT * FROM album");
     		while ($pecah = $ambil->fetch_assoc()) {
+
+    			$artist = $koneksi->query("SELECT nama_artist FROM artist WHERE id_artist = '$pecah[id_artist]'")->fetch_assoc();
     	?>
 		<tr>
 			<td><?= $no ?></td>
 			<td><?= $pecah['title'] ?> (<?= $pecah['year'] ?>)</td>
-			<td></td>
+			<td><?= $artist['nama_artist'] ?></td>
 			<td>
 			<a href="index.php?halaman=editalbum&id=<?= $pecah['id_album'] ?>" class="btn btn-warning"><i class='fas fa-edit' ></i> edit</a>
 			<a onclick="return confirm('Yakin ingin hapus?')" href="index.php?halaman=hapusalbum&id=<?= $pecah['id_album'] ?>" class="btn-danger btn"><i class='fas fa-trash-alt'></i> hapus</a>

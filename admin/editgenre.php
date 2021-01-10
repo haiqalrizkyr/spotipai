@@ -42,7 +42,9 @@ $pecah = $ambil->fetch_assoc();
 
 <?php
 	if (isset($_POST['save'])) {
-		$koneksi->query("UPDATE genre SET nama_genre = '$_POST[nama_genre]' WHERE id_genre = '$id_genre'");
+		$nama_genre = addslashes($_POST['nama_genre']);
+
+		$koneksi->query("UPDATE genre SET nama_genre = '$nama_genre' WHERE id_genre = '$id_genre'");
 
 		echo "<script>alert('Genre diubah!');</script>";
 		echo '<script type="text/javascript">location="index.php?halaman=genre"</script>';
