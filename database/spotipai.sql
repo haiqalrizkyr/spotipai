@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2021 at 06:32 PM
+-- Generation Time: Jan 11, 2021 at 12:48 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -148,11 +148,11 @@ CREATE TABLE `song` (
 --
 
 INSERT INTO `song` (`id_song`, `title`, `year`, `song_file`, `played`) VALUES
-(1, 'Stuck With You', 2020, 'asdasdasdasdasdas.mp3', 0),
-(2, 'Monster', 2020, 'asdasdasdsadasads.mp3', 0),
+(1, 'Stuck With You', 2020, 'Ariana Grande - Stuck with U ft. Justin Bieber.mp3', 0),
+(2, 'Monster', 2020, 'Shawn Mendes, Justin Bieber - Monster.mp3', 0),
 (3, 'Memories', 2019, 'Maroon 5 - Memories.mp3', 3),
 (4, 'Villain', 2020, 'KDA - VILLAIN ft. Madison Beer & Kim Petras.mp3', 3),
-(5, 'More', 2020, 'asdasdsadas.mp3', 0),
+(5, 'More', 2020, 'K_DA (Feat. Madison Beer, (G)I-DLE, Lexie Liu, Jaira Burns).mp3', 1),
 (6, 'Drum Go Dum', 2020, 'asdasdsadsadasdas.mp3', 0),
 (7, 'All Around Me', 2020, 'asdsadsadasd.mp3', 0),
 (8, 'I Wished On The Moon', 2020, 'asdsadsadsadas.mp3', 0),
