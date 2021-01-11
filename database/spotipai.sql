@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2021 at 12:48 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Generation Time: Jan 11, 2021 at 01:20 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -140,7 +141,7 @@ CREATE TABLE `song` (
   `title` varchar(220) NOT NULL,
   `year` int(4) NOT NULL,
   `song_file` varchar(200) NOT NULL,
-  `played` int(6) NOT NULL DEFAULT 0
+  `played` int(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -161,14 +162,14 @@ INSERT INTO `song` (`id_song`, `title`, `year`, `song_file`, `played`) VALUES
 (12, 'Banda Neira', 2016, 'LAGUF1.MOBI - BANDA NEIRA - SAMPAI JADI DEBU.mp3', 1),
 (13, 'Love of My Life', 1975, 'LAGUF1.MOBI - Queen - Love of My Life.mp3', 2),
 (14, 'Bat Country', 2005, 'Avenged Sevenfold - Bat Country.mp3', 0),
-(15, 'All My Ex\'s Live In Texas', 1987, 'LAGU9.MOBI - All My Ex s Live In Texas.mp3', 4),
 (16, 'Mean', 2010, 'LAGUF1.MOBI - Taylor Swift - Mean.mp3', 0),
 (17, 'Rockstar', 2018, 'LAGUF1.MOBI - Post Malone - rockstar ft. 21 Savage.mp3', 1),
 (18, 'Bila Bersamamu', 2017, 'LAGUF1.MOBI - NIDJI - BILA BERSAMAMU.mp3', 1),
 (19, 'Numb', 2003, 'LAGUF1.MOBI - Numb  - Linkin Park.mp3', 3),
 (20, 'Alone', 2016, 'LAGUF1.MOBI - Marshmello - Alone.mp3', 0),
 (21, 'Hoochie Coochie Man', 1996, 'LAGUF1.MOBI - Muddy Waters - Hoochie Coochie Man.mp3', 0),
-(22, 'Unravel', 2014, 'Unravel - TK from Ling tosite sigure.mp3', 0);
+(22, 'Unravel', 2014, 'Unravel - TK from Ling tosite sigure.mp3', 0),
+(23, 'All My ex\'s Live In Texas', 1987, 'LAGU9.MOBI - All My Ex s Live In Texas.mp3', 0);
 
 -- --------------------------------------------------------
 
@@ -198,13 +199,13 @@ INSERT INTO `song_album` (`id_song_album`, `id_song`, `id_album`) VALUES
 (10, 12, 8),
 (11, 13, 9),
 (12, 14, 10),
-(13, 15, 11),
 (14, 16, 12),
 (15, 17, 13),
 (16, 18, 14),
 (17, 19, 15),
 (18, 21, 17),
-(19, 22, 18);
+(19, 22, 18),
+(20, 23, 11);
 
 -- --------------------------------------------------------
 
@@ -240,7 +241,6 @@ INSERT INTO `song_artist` (`id_song_artist`, `id_song`, `id_artist`) VALUES
 (16, 12, 12),
 (17, 13, 13),
 (18, 14, 10),
-(19, 15, 14),
 (20, 16, 15),
 (21, 17, 16),
 (22, 17, 17),
@@ -248,7 +248,8 @@ INSERT INTO `song_artist` (`id_song_artist`, `id_song`, `id_artist`) VALUES
 (24, 19, 19),
 (25, 20, 20),
 (26, 21, 22),
-(27, 22, 24);
+(27, 22, 24),
+(28, 23, 14);
 
 -- --------------------------------------------------------
 
@@ -281,7 +282,6 @@ INSERT INTO `song_genre` (`id_song_genre`, `id_song`, `id_genre`) VALUES
 (13, 13, 3),
 (14, 13, 4),
 (15, 14, 14),
-(16, 15, 11),
 (17, 16, 11),
 (18, 16, 13),
 (19, 17, 10),
@@ -290,7 +290,8 @@ INSERT INTO `song_genre` (`id_song_genre`, `id_song`, `id_genre`) VALUES
 (22, 19, 6),
 (23, 20, 7),
 (24, 21, 9),
-(25, 22, 16);
+(25, 22, 16),
+(26, 23, 11);
 
 -- --------------------------------------------------------
 
@@ -532,25 +533,25 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `song`
 --
 ALTER TABLE `song`
-  MODIFY `id_song` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_song` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `song_album`
 --
 ALTER TABLE `song_album`
-  MODIFY `id_song_album` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_song_album` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `song_artist`
 --
 ALTER TABLE `song_artist`
-  MODIFY `id_song_artist` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_song_artist` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `song_genre`
 --
 ALTER TABLE `song_genre`
-  MODIFY `id_song_genre` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_song_genre` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `user`
