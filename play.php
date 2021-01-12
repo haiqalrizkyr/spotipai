@@ -26,6 +26,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="style.css">
     <?php include 'script.html' ?>
+    <style type="text/css">
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	a:hover {
+		text-decoration: underline;
+		color: inherit;
+	}
+</style>
 </head>
 
 <body style="background-color: #0e0e0d">
@@ -121,6 +132,27 @@
                     </tr>
                     <tr>
                         <td>Year : <?= $datalagu['year'] ?></td>
+                    </tr>
+                    <tr>
+                    	<td>
+                    		<?php
+                    			$querygenre = "SELECT g.nama_genre FROM song_genre sg JOIN genre g ON sg.id_genre = g.id_genre WHERE sg.id_song = '$id_lagu'";
+
+                    			$ambilgenre = $koneksi->query($querygenre);
+                    			$jumlahgenre = $ambilgenre->num_rows;
+                    			$igenre = 1;
+                    			
+                    			echo "Genre : ";
+                    			while($datagenre = $ambilgenre->fetch_assoc()){
+                    				echo $datagenre['nama_genre'];
+
+                    				if ($igenre < $jumlahgenre) {
+                    					echo ", ";
+                    				}
+                    				$igenre++;
+                    			}
+                    		?>
+                    	</td>
                     </tr>
                 </table>
             </div>
