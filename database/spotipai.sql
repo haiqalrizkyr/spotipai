@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2021 at 12:48 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Generation Time: Jan 12, 2021 at 01:06 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -54,7 +55,9 @@ INSERT INTO `album` (`id_album`, `id_artist`, `title`, `year`) VALUES
 (14, 18, 'Love Fake and Friendship', 2017),
 (15, 19, 'Meteora', 2003),
 (17, 22, 'At Newport', 1996),
-(18, 24, 'Fantastic Magic', 2014);
+(18, 24, 'Fantastic Magic', 2014),
+(19, 2, 'Positions', 2020),
+(20, 25, 'Raindrops', 2020);
 
 -- --------------------------------------------------------
 
@@ -75,7 +78,7 @@ CREATE TABLE `artist` (
 
 INSERT INTO `artist` (`id_artist`, `nama_artist`, `artist_image`, `about`) VALUES
 (1, 'Justin Bieber', 'justin_beber.jpg', 'Justin Drew Bieber is a Canadian singer, songwriter and multi-instrumentalist. Discovered at age 13 by talent manager Scooter Braun after he had watched Bieber\'s YouTube cover song videos, Bieber was signed to RBMG Records in 2008.'),
-(2, 'Ariana Grande', 'ariana.jpg', 'Ariana is an American singer and actress. Born in Boca Raton, Florida, Grande began her career at age 15 in the 2008 Broadway musical 13. She rose to fame for her role as Cat Valentine in the Nickelodeon television series Victorious (2010–2013) and Sam & Cat (2013–2014)'),
+(2, 'Ariana Grande', 'ariana.jpg', 'Ariana is an American singer and actress. Born in Boca Raton, Florida, Grande began her career at age 15 in the 2008 Broadway musical 13. She rose to fame for her role as Cat Valentine in the Nickelodeon television series Victorious (2010-2013) and Sam & Cat (2013-2014)'),
 (3, 'Shawn Mendes', '2240957.jpg', 'Shawn Peter Raul Mendes is a Canadian singer and songwriter. He gained a following in 2013, posting song covers on the video-sharing application Vine.'),
 (4, 'Maroon 5', 'wp1822252.jpg', 'Maroon 5 is an American pop rock band from Los Angeles, California. It currently consists of lead vocalist Adam Levine, keyboardist and rhythm guitarist Jesse Carmichael, lead guitarist James Valentine, drummer Matt Flynn, keyboardist PJ Morton and bassist Sam Farrar.'),
 (5, 'K/DA', 'kda.jpg', 'K/DA is a virtual k-pop girl group consisting of four themed versions of League of Legends characters: Ahri, Akali, Evelynn and Kai\'Sa. American singers Madison Beer and Jaira Burns and (G)I-dle members Miyeon and Soyeon provide the voices of Evelynn, Kai\'Sa, Ahri, and Akali respectively, though the characters have also been voiced by other artists. K/DA was developed by Riot Games, the company behind League of Legends, and unveiled at the 2018 League of Legends World Championship with an augmented reality live performance of their first song, \"Pop/Stars\".'),
@@ -89,12 +92,14 @@ INSERT INTO `artist` (`id_artist`, `nama_artist`, `artist_image`, `about`) VALUE
 (14, 'George Strait', 'wp4257198.jpg', 'George Harvey Strait Sr. (born May 18, 1952) is an American country music singer, songwriter, actor, and music producer. George Strait is known as the \"King of Country\" and is considered one of the most influential and popular recording artists of all time.'),
 (15, 'Taylor Swift', '182773.jpg', 'Taylor Alison Swift is an American singer-songwriter. Her narrative songwriting, which often takes inspiration from her personal life, has received widespread critical plaudits and media coverage. Born in West Reading, Pennsylvania, Swift relocated to Nashville, Tennessee in 2004 to pursue a career in country music.'),
 (16, 'Post Malone', 'WagzFU.jpg', 'Austin Richard Post, known professionally as Post Malone, is an American rapper, singer, songwriter, and record producer. Known for his introspective songwriting and laconic vocal style, Malone has gained acclaim for bending a range of genres including hip hop, R&B, pop, trap, rap rock, and cloud rap.'),
-(17, '21 Savage', '21-Savage-Wallpaper-For-PC.jpg', 'Shéyaa Bin Abraham-Joseph, better known by his stage name 21 Savage, is a rapper, songwriter, and record producer. Born in London, England, he was brought to Atlanta, Georgia, by his mother at the age of seven.'),
+(17, '21 Savage', '21-Savage-Wallpaper-For-PC.jpg', 'ShÃ©yaa Bin Abraham-Joseph, better known by his stage name 21 Savage, is a rapper, songwriter, and record producer. Born in London, England, he was brought to Atlanta, Georgia, by his mother at the age of seven.'),
 (18, 'Nidji', 'nidji-52bfca4c31ed6.jpg', 'Nidji is an Indonesian rock band based in Jakarta. Formed on February 2002, Nidji\'s name comes from the Japanese word niji (虹), meaning \"rainbow\".'),
 (19, 'Linkin Park', '540981.jpg', 'Linkin Park is an American rock band from Agoura Hills, California. The band\'s current lineup comprises vocalist/rhythm guitarist Mike Shinoda, lead guitarist Brad Delson, bassist Dave Farrell, DJ/turntablist Joe Hahn and drummer Rob Bourdon, all of whom are founding members.'),
-(20, 'Marshmello', 'wp1819265.jpg', 'Christopher Comstock, known professionally as Marshmello, is an American electronic music producer and DJ. He first gained international recognition by releasing remixes of songs by American DJ duo Jack Ü and Russian-German DJ Zedd.'),
-(22, 'Muddy Waters', 'muddywaters.jpg', 'McKinley Morganfield (April 4, 1913 – April 30, 1983), known professionally as Muddy Waters, was an American blues singer-songwriter and musician who was an important figure in the post-war blues scene, and is often cited as the \"father of modern Chicago blues\".'),
-(24, 'Toru Kitajima', 'art_tk.jpg', 'Toru Kitajima, better known as TK, is a Japanese musician and singer-songwriter. He rose to prominence as lead vocalist, guitarist and songwriter of the rock band Ling Tosite Sigure, which formed in 2002. In 2011, he started to release solo material as TK from Ling tosite sigure.');
+(20, 'Marshmello', 'wp1819265.jpg', 'Christopher Comstock, known professionally as Marshmello, is an American electronic music producer and DJ. He first gained international recognition by releasing remixes of songs by American DJ duo Jack Ãœ and Russian-German DJ Zedd.'),
+(22, 'Muddy Waters', 'muddywaters.jpg', 'McKinley Morganfield (April 4, 1913 - April 30, 1983), known professionally as Muddy Waters, was an American blues singer-songwriter and musician who was an important figure in the post-war blues scene, and is often cited as the \"father of modern Chicago blues\".'),
+(24, 'Toru Kitajima', 'art_tk.jpg', 'Toru Kitajima, better known as TK, is a Japanese musician and singer-songwriter. He rose to prominence as lead vocalist, guitarist and songwriter of the rock band Ling Tosite Sigure, which formed in 2002. In 2011, he started to release solo material as TK from Ling tosite sigure.'),
+(25, 'Sezairi', 'sezairi.jpg', 'Sezairi Sezali (born August 6, 1987) popularly known as SEZAIRI is a Singaporean musician and singer-songwriter of Malay descent.'),
+(26, 'Marian Hill', 'marian hill.jpg', 'Marian Hill is an American songwriting duo from Philadelphia consisting of production artist Jeremy Lloyd and vocalist Samantha Gongol.');
 
 -- --------------------------------------------------------
 
@@ -140,7 +145,7 @@ CREATE TABLE `song` (
   `title` varchar(220) NOT NULL,
   `year` int(4) NOT NULL,
   `song_file` varchar(200) NOT NULL,
-  `played` int(6) NOT NULL DEFAULT 0
+  `played` int(6) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -148,27 +153,30 @@ CREATE TABLE `song` (
 --
 
 INSERT INTO `song` (`id_song`, `title`, `year`, `song_file`, `played`) VALUES
-(1, 'Stuck With You', 2020, 'Ariana Grande - Stuck with U ft. Justin Bieber.mp3', 0),
+(1, 'Stuck With You', 2020, 'Ariana Grande - Stuck with U ft. Justin Bieber.mp3', 2),
 (2, 'Monster', 2020, 'Shawn Mendes, Justin Bieber - Monster.mp3', 0),
 (3, 'Memories', 2019, 'Maroon 5 - Memories.mp3', 3),
 (4, 'Villain', 2020, 'KDA - VILLAIN ft. Madison Beer & Kim Petras.mp3', 3),
 (5, 'More', 2020, 'K_DA (Feat. Madison Beer, (G)I-DLE, Lexie Liu, Jaira Burns).mp3', 1),
-(6, 'Drum Go Dum', 2020, 'asdasdsadsadasdas.mp3', 0),
-(7, 'All Around Me', 2020, 'asdsadsadasd.mp3', 0),
-(8, 'I Wished On The Moon', 2020, 'asdsadsadsadas.mp3', 0),
+(6, 'Drum Go Dum', 2020, 'LAGUF1.MOBI - K_DA - DRUM GO DUM ft. Aluna, Wolftyla, Bekuh BOOM.mp3', 0),
+(7, 'All Around Me', 2020, 'LAGUF1.MOBI - Justin Bieber - All Around Me.mp3', 0),
+(8, 'I Wished On The Moon', 2020, 'Diana Krall - I Wished On The Moon (Audio).mp3', 0),
 (10, 'Nightmare', 2010, 'LAGUF1.MOBI - Avenged Sevenfold - Nightmare.mp3', 2),
 (11, 'Talk', 2019, 'LAGU9.MOBI - Khalid - Talk.mp3', 2),
-(12, 'Banda Neira', 2016, 'LAGUF1.MOBI - BANDA NEIRA - SAMPAI JADI DEBU.mp3', 1),
+(12, 'Banda Neira', 2016, 'LAGUF1.MOBI - BANDA NEIRA - SAMPAI JADI DEBU.mp3', 2),
 (13, 'Love of My Life', 1975, 'LAGUF1.MOBI - Queen - Love of My Life.mp3', 2),
 (14, 'Bat Country', 2005, 'Avenged Sevenfold - Bat Country.mp3', 0),
-(15, 'All My Ex\'s Live In Texas', 1987, 'LAGU9.MOBI - All My Ex s Live In Texas.mp3', 4),
 (16, 'Mean', 2010, 'LAGUF1.MOBI - Taylor Swift - Mean.mp3', 0),
 (17, 'Rockstar', 2018, 'LAGUF1.MOBI - Post Malone - rockstar ft. 21 Savage.mp3', 1),
 (18, 'Bila Bersamamu', 2017, 'LAGUF1.MOBI - NIDJI - BILA BERSAMAMU.mp3', 1),
 (19, 'Numb', 2003, 'LAGUF1.MOBI - Numb  - Linkin Park.mp3', 3),
 (20, 'Alone', 2016, 'LAGUF1.MOBI - Marshmello - Alone.mp3', 0),
 (21, 'Hoochie Coochie Man', 1996, 'LAGUF1.MOBI - Muddy Waters - Hoochie Coochie Man.mp3', 0),
-(22, 'Unravel', 2014, 'Unravel - TK from Ling tosite sigure.mp3', 0);
+(22, 'Unravel', 2014, 'Unravel - TK from Ling tosite sigure.mp3', 0),
+(23, 'All My ex\'s Live In Texas', 1987, 'LAGU9.MOBI - All My Ex s Live In Texas.mp3', 0),
+(24, '34 35', 2020, 'Ariana Grande - 34+35 (official video).mp3', 1),
+(25, 'Raindrops', 2020, 'Sezairi - Raindrops.mp3', 0),
+(26, 'Got it', 2015, 'Marian Hill - Got It (Audio).mp3', 1);
 
 -- --------------------------------------------------------
 
@@ -198,13 +206,15 @@ INSERT INTO `song_album` (`id_song_album`, `id_song`, `id_album`) VALUES
 (10, 12, 8),
 (11, 13, 9),
 (12, 14, 10),
-(13, 15, 11),
 (14, 16, 12),
 (15, 17, 13),
 (16, 18, 14),
 (17, 19, 15),
 (18, 21, 17),
-(19, 22, 18);
+(19, 22, 18),
+(20, 23, 11),
+(21, 24, 19),
+(22, 25, 20);
 
 -- --------------------------------------------------------
 
@@ -240,7 +250,6 @@ INSERT INTO `song_artist` (`id_song_artist`, `id_song`, `id_artist`) VALUES
 (16, 12, 12),
 (17, 13, 13),
 (18, 14, 10),
-(19, 15, 14),
 (20, 16, 15),
 (21, 17, 16),
 (22, 17, 17),
@@ -248,7 +257,11 @@ INSERT INTO `song_artist` (`id_song_artist`, `id_song`, `id_artist`) VALUES
 (24, 19, 19),
 (25, 20, 20),
 (26, 21, 22),
-(27, 22, 24);
+(27, 22, 24),
+(28, 23, 14),
+(29, 24, 2),
+(30, 25, 25),
+(31, 26, 26);
 
 -- --------------------------------------------------------
 
@@ -281,7 +294,6 @@ INSERT INTO `song_genre` (`id_song_genre`, `id_song`, `id_genre`) VALUES
 (13, 13, 3),
 (14, 13, 4),
 (15, 14, 14),
-(16, 15, 11),
 (17, 16, 11),
 (18, 16, 13),
 (19, 17, 10),
@@ -290,7 +302,12 @@ INSERT INTO `song_genre` (`id_song_genre`, `id_song`, `id_genre`) VALUES
 (22, 19, 6),
 (23, 20, 7),
 (24, 21, 9),
-(25, 22, 16);
+(25, 22, 16),
+(26, 23, 11),
+(27, 24, 2),
+(28, 25, 2),
+(29, 26, 2),
+(30, 26, 8);
 
 -- --------------------------------------------------------
 
@@ -514,13 +531,13 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `album`
 --
 ALTER TABLE `album`
-  MODIFY `id_album` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_album` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `artist`
 --
 ALTER TABLE `artist`
-  MODIFY `id_artist` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_artist` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `genre`
@@ -532,25 +549,25 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `song`
 --
 ALTER TABLE `song`
-  MODIFY `id_song` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_song` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `song_album`
 --
 ALTER TABLE `song_album`
-  MODIFY `id_song_album` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_song_album` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `song_artist`
 --
 ALTER TABLE `song_artist`
-  MODIFY `id_song_artist` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_song_artist` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `song_genre`
 --
 ALTER TABLE `song_genre`
-  MODIFY `id_song_genre` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_song_genre` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `user`
